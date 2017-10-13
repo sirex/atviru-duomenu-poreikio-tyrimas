@@ -1,0 +1,40 @@
+@prefix :     <https://atviriduomenys.lt/rdf#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+
+:adresas a rdfs:Class 
+    rdfs:label "Pastato adresas" .
+
+
+:asmines-kodas a rdf:Property ;
+    rdfs:label "Asmens kodas"@lt ;
+    rdfs:domain foaf:Person ;
+    rdfs:range rdfs:Literal .
+
+:registracijos-numeris a rdf:Property ;
+    rdfs:label "Registracijos numeris"@lt ;
+    rdfs:comment "Įmonės ar organizacijos registracijos numeris."@lt ;
+    rdfs:domain foaf:Organization ;
+    rdfs:range rdfs:Literal .
+
+
+    
+  - title: Teisinė forma
+  - title: Logotipas
+  - title: Įmonei priklausantis pastatas
+  - title: Veiklos sritis
+  - title: El. paštas
+  - title: Tel. nr.
+  - title: Tinklapis
+  - title: Darbuotojų skaičius
+  - title: Vidutinis atlyginimas
+  - title: Skola sodrai
+  - title: Apyvarta
+  - title: Įregistravimo data
+  - title: Išregistravimo data
+  - title: Logotipas
+  - title: Akcininkas
+    type: aktorius

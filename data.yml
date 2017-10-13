@@ -1,0 +1,294 @@
+---
+type: aktorius
+description: fizinis arba juridinis asmuo
+
+---
+type: įmonė
+title: Įmonė
+fields:
+  - title: Pavadinimas
+  - title: Registracijos numeris
+  - title: Registracijos adresas
+  - title: Teisinė forma
+  - title: Logotipas
+  - title: Įmonei priklausantis pastatas
+  - title: Veiklos sritis
+  - title: El. paštas
+  - title: Tel. nr.
+  - title: Tinklapis
+  - title: Darbuotojų skaičius
+  - title: Vidutinis atlyginimas
+  - title: Skola sodrai
+  - title: Apyvarta
+  - title: Įregistravimo data
+  - title: Išregistravimo data
+  - title: Logotipas
+  - title: Akcininkas
+    type: aktorius
+
+---
+type: valstybinė-įstaiga
+title: Valstybinė įstaiga
+extends: įmonė
+fields:
+  - title: Kam ši įstaiga yra pavaldi
+
+---
+type: adresas
+fields:
+  - title: Darbo laikas
+  - title: Geografinės koordinatės
+
+---
+name: įmonei-priklausantis-pastatas
+title: Įmonei priklausantis pastatas
+extends: adresas
+
+Įmonės akcininkas	Akcijų dalis įmonėje
+Įmonė	Driektorius
+Valstybinė įstaiga	Pavadinmias
+Valstybinė įstaiga	Logitipas
+Valstybinė įstaiga	Registracijos numeris
+Valstybinė įstaiga	Valstybinė įstaiga, kuriai yra pavaldi
+Valstybinė įstaiga	El. paštas
+Valstybinė įstaiga	Tel. nr.
+Valstybinė įstaiga	Pastatas
+Valstybės tarnautojas	Vardas
+Valstybės tarnautojas	Pavardė
+Valstybės tarnautojas	Gimimo data
+Valstybės tarnautojas	Pareigos
+Valstybės tarnautojas	Valstybinį įstaiga, kurioje dirba
+Valstybės tarnautojas	El. paštas
+Valstybės tarnautojas	Tel. nr.
+Valstybės tarnautojas	Nuotrauka
+Valstybės tarnautojas	Teistumas
+Valstybės tarnautojas	Grynieji pinigai
+Valstybės tarnautojas	Nekilnojamo turto vertė
+Valstybės tarnautojas	Pajamos
+Valstybės tarnautojas	Darbovietė
+Valstybės tarnautojas	Narystė partijoje
+Valstybės tarnautojas	Išsilavinimas
+Sandoriai	Valstybės tarnautojas
+Sandoriai	Įmonė
+Sandoriai	Sandorio vertė
+Sandoriai	Asmens atliktas veiksmas
+Sandoriai	Data
+Sandoriai	Sandorio objektas
+Narystė partijoje	Partija
+Narystė partijoje	Pradžios data
+Narystė partijoje	Pabaigos data
+Narystė partijoje	Pareigos
+Pastatas	Pastato numeris
+Pastatas	Gatvė
+Pastatas	Seniūnija
+Pastatas	Savivaldybė
+Pastatas	Miestas/Rajonas
+Pastatas	Apskritis
+Pastatas	Geografinės koordinatės
+Pastatas	Aukštų skaičius
+Pastatas	Statybos metai
+Pastatas	Pastato tipas
+Pastatas	Vidutinė sezono šilumos kaina
+Pastatas	Oro tarša
+Pastatas	Rinkos vertė
+Policijoje registruotas įvykis	Geografinės koordinatės
+Policijoje registruotas įvykis	Įvykio rūšis
+Seimo narys	Vardas
+Seimo narys	Pavardė
+Seimo narys	Gimimo data
+Seimo narys	Mirties data
+Seimo narys	Nuotrauka
+Narystė frakcijoje	Seimo narys
+Narystė frakcijoje	Frakcija
+Narystė frakcijoje	Pradžios data
+Narystė frakcijoje	Pabaigos data
+Frakcija	Pavadinimas
+Frakcija	Sutrumpinimas
+Frakcija	Pradžios data
+Frakcija	Pabaigos data
+Frakcija	Logotipas
+Frakcija	Partija
+Balsas	Balso reikšmė
+Balsas	Data ir laikas
+Balsas	Seimo narys
+Balsas	Frakcija
+Balsas	Balsavimas
+Balsas	Užsiregistravo
+Balsas	Klausimas
+Balsas	Teisė aktas
+Balsas	Balsavimas
+Teisės aktas	Pavadinimas
+Teisės aktas	Numeris
+Teisės aktas	Paskelbimo data
+Teisės aktas	Įsigaliojimo data
+Teisės aktas	Dokumento tekstas
+Teisės aktas	Eurovoc terminas
+Pasisakymas stenogramoje	Stenograma
+Pasisakymas stenogramoje	Pasisakymo data
+Pasisakymas stenogramoje	Pasisakymo tekstas
+Pasisakymas stenogramoje	Pasisakiusiojo vardas
+Pasisakymas stenogramoje	Pasisakiusiojo pavardė
+Pasisakymas stenogramoje	Pasisakiusiojo pareigos
+Pasisakymas stenogramoje	Pasisakiusiojo įstaiga/įmonė
+Pasisakymas stenogramoje	Seimo narys
+Pasisakymas stenogramoje	Valstybės tarnautojas
+Pasisakymas stenogramoje	Posėdžio pirmininkas
+Pasisakymas stenogramoje	Teisės aktas
+Pasisakymas stenogramoje	Balsavimas
+Pasisakymas stenogramoje	Teisės akto puntas
+Teisės akto punktas	Teisės aktas
+Teisės akto punktas	Teisės akto punkto tekstas
+Teisės akto punktas	Ryšys su tėviniu teisės akto punktu
+Teisės akto punktas	Teisės akto punkto tipas
+Teisės akto punktas	Teisės akto pakeitimas
+Teisės akto pakeitimas	Teisės aktas
+Teisės akto pakeitimas	Keičiamas punktas
+Teisės akto pakeitimas	Naujas punktas
+Teisės akto pakeitimas	Teisės akto projektas
+Statistikos departameton statistinių rodiklių lentelė	Nuoroda į CSV failą
+Įmonės bankrotas	Įmonė
+Įmonės bankrotas	Data
+Įmonės bankrotas	Išieškomos skolos dalis
+Įmonės bankrotas	Bankroto proceso iniciatorius
+Viešieji pirkimai	Open Contracting Data Standard (OCDS)
+Metrikų knygos lapas	Metrikų knyga
+Metrikų knygos lapas	Lapo numeris
+Metrikų knygos lapas	Lapo paveiksliukas
+Metrikų knyga	Laikotarpis
+Metrikų knyga	Pastatas
+Metrikų knyga	Skaitmeninimo data
+Pastatas	Pastato istorinis administracinis suskirstymas
+Pastato istorinis administracinis suskirstymas	Priklausė administraciniam vienetui
+Pastato istorinis administracinis suskirstymas	Pradžios data
+Pastato istorinis administracinis suskirstymas	Pabaigos data
+Vandens telkinys	Pavadinimas
+Vandens telkinys	Geografinės koordinatės
+Turizmo objektas	Pavadinimas
+Turizmo objektas	Rūšis
+Turizmo objektas	Geografinės koordinatės
+Saugoma teritorija	Pavadinimas
+Saugoma teritorija	Geografinės koordinatės
+Kultūros vertybė	Pavadinimas
+Kultūros vertybė	Geografinės koordinatės
+Kultūros vertybė	Rūšis
+Lietuviškas žodis	Žodis
+Lietuviškas žodis	Žodžio prasmės aprašymas
+Lietuviškas žodis	Žodžio naudojimo pavyzdžiai
+Lietuviškas žodis	Gramatinė forma
+Lietuviškas žodis	Kaitymas kalbos dalimis
+Lietuviškas žodis	Galimos dodžio formos
+Lietuviškas žodis	Žodžio šaknis
+Lietuviškas žodis	Semantinė kategorija
+Call data record (CDR)	Tel. nr.
+Call data record (CDR)	Skambučio pradžios data ir laikas
+Call data record (CDR)	Kada atsiliepta, data ir laikas
+Call data record (CDR)	Kada baigtas pokalbis, data ir laikas
+Mokymo įstaiga	Pavadinimas
+Mokymo įstaiga	Institucijos tipas
+Mokymo įstaiga	Pastatas
+Studijų programa	Pavadinimas
+Studijų programa	Studijų pakopa
+Studijų programa	Studijų sritis
+Studijų programa	Programos valstybinis numeris
+Studijų programa	Aprašymas
+Studijų programa	Mokymo įstaiga
+Studijų programa	Trukmė metais
+Studijų programa	Forma (nuolatinė, neakivaizdinė)
+Studijų programa	Profesija
+Studijų dalykas	Pavadinimas
+Studijų dalykas	Studijų programa
+Studijų dalykas	Privaloma
+Studijų dalykas	Kreditai
+Studentas	Mokymo įstaiga
+Studentas	Šalis
+Studentas	Mokymo įstaiga iš kurios atvyko (užsieniečiams)
+Studentas	Pilietybė
+Profesija	Pavadinimas
+Profesija	Sritis
+Profesija	Darbo vietų skaičius
+Profesija	Laisvų darbo vietų skaičius
+Darbo vieta	Profesija
+Darbo vieta	Pavadinimas
+Darbo vieta	Geografinės koordinatės
+Liga	Pavadinimas
+Susirgimas	Liga
+Susirgimas	Susirgimo pradžia
+Susirgimas	Susirgimo pabaiga
+Susirgimas	Profesija
+Susirgimas	Geografinės koordinatės
+Visitor location register	Kilmės šalis
+Visitor location register	Registracijos data ir laikas
+Visitor location register	Telefono modelis
+Šalis	Lietuviškas pavadinimas
+Šalis	ISO-3166 kodas
+Kapinės	Pavadinimas
+Kapinės	Geografinės koordinatės
+Kapinės	Seniūnija
+Kapinės	Savivaldybė
+Kapinės	Miestas/Rajonas
+Kapas	Kapinės
+Kapas	Nuotrauka
+Kapas	Vardas
+Kapas	Pavardė
+Kapas	Gimimo data
+Kapas	Mirties data
+Lietuvos pilietis	Vardas
+Lietuvos pilietis	Gimimo data
+Lietuvos pilietis	Gimimo Miestas/Rajonas
+Parkavimo aikštelė	Geografinės koordinatės
+Parkavimo aikštelė	Parkavimo kaina
+Parkavimo aikštelė	Darbo laikas
+Parkavimo aikštelė	Laisvų vietų skaičius
+Projektas	Prašomos paramos suma
+Projektas	Skirtos paramos suma
+Projektas	Paramos teikėjas
+Projektas	Pavadinimas
+Projektas	Vykdytojas
+Projektas	Pradžios data
+Projektas	Pabaigos data
+Projektas	Geografinės koordinatės
+Projektas	Sritis
+Rinkimai	Pavadinimas
+Rinkimai	Rūšis
+Rinkimų etapas	Pavadinimas
+Rinkimų etapas	Data
+Rinkimų apylinkė	Pavadinimas
+Rinkimų apylinkė	Geografinės koordinatės
+Rinkimų apylinkė	Rinkimų apygarda
+Rinkimų apylinkė	Pastatas
+Rinkimų apygarda	Pavadinimas
+Rinkimų apygarda	Geografinės koordinatės
+Partija	Rinkimai
+Partija	Pavadinimas
+Partija	Vadovas
+Rinkimų kandidatas	Vardas
+Rinkimų kandidatas	Pavardė
+Rinkimų kandidatas	Gimimo data
+Rinkimų kandidatas	Gimtoji kalba
+Rinkimų kandidatas	Išsilavinimas
+Rinkimų kandidatas	Tautybė
+Rinkimų kandidatas	Nuotrauka
+Rinkimų kandidatas	Teistumas
+Rinkimų kandidatas	Grynieji pinigai
+Rinkimų kandidatas	Nekilnojamo turto vertė
+Rinkimų kandidatas	Pajamos
+Rinkimų kandidatas	Darbovietė
+Rinkimų kandidatas	Narystė partijoje
+Rinkimų kandidatas	Išsilavinimas
+Rinkimų kandidatas	Sandoris
+Rinkimų kandidatas	Rinkimai
+Rinkimų kandidatas	Eilė sąraše
+Rinkimų kandidatas	Sąrašas
+Rinkimų kandidatas	Sutuoktinis
+Rinkimų kandidatas	Vaikas
+Autobusų stotelė	Pavadinimas
+Autobusų stotelė	Geografinės koordinatės
+Maršrutas	Pavadinimas
+Maršrutas	Stotelių sąrašas
+Biudžeto fiskalinis įrašas	Suma
+Biudžeto fiskalinis įrašas	Pajamos/Išlaidos
+Biudžeto fiskalinis įrašas	Sritis
+Biudžeto fiskalinis įrašas	Mokesčių mokėtojas
+Biudžeto fiskalinis įrašas	Asignavimų valdytojas
+Biudžeto fiskalinis įrašas	Data ir laikas
+Biudžeto fiskalinis įrašas	Geografinės koordinatės
