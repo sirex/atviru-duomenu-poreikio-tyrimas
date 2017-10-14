@@ -1,16 +1,15 @@
-import collections
+class P:
+
+    def __init__(self, title, type=None, *, choices=None):
+        self.title = title
+        self.type = type
+        self.choices = choices
 
 
-Prop = collections.namedtuple('Prop', (
-    'title',
-))
+class Objektas:
 
-
-def P(title):
-    return Prop(title)
-
-
-class Thing:
+    def __init__(self, **kw):
+        self.kw = kw
 
     def __getitem__(self, name):
         return getattr(self, name)
@@ -19,25 +18,48 @@ class Thing:
         title = None
 
 
-
-class Koordinates(Thing):
-    ilguma = P("Geografinė ilguma")
-    platuma = P("Geografinė platuma")
+class DataLaikas(Objektas):
+    laiko_juosta = P("Laiko juosta")
 
 
-class Adresas(Thing):
-    koordinates = P("Koordinatės", koordinates)
+class Data(DataLaikas):
+    metai = P("Metai", int)
+    menuo = P("Menuo", int)
+    diena = P("Diena", int)
+
+
+class Laikas(DataLaikas):
+    valanda = P("Valanda", int)
+    minute = P("Minute", int)
+    sekunde = P("Sekunde", int)
+
+
+class Laikotarpis(Objektas):
+    """Nusako kaip objekto savybės keitėsi laike."""
+    objektas = P("Ryšys su naujesnio laikotarpio objektu", Objektas)
+    pradzia = P("Laikotarpio pradžia", DataLaikas)
+    pabaiga = P("Laikotarpio pabaiga", DataLaikas)
+
+
+class Koordinates(Objektas):
+    ilguma = P("Geografinė ilguma", str)
+    platuma = P("Geografinė platuma", str)
+
+
+class Adresas(Objektas):
+    koordinates = P("Koordinatės", Koordinates)
     apskritis = P("Apskritis")
     rajonas = P("Miestas/Rajonas")
     savivaldybe = P("Savivaldybė")
     gatve = P("Gatvė")
     pastato_numeris = P("Pastato numeris")
+    laikotarpis = P("Laikotarpis", Laikotarpis)
 
     class meta:
         title = "Adresas"
 
 
-class Agentas(Thing):
+class Agentas(Objektas):
     pavadinimas = P("Pavadinimas")
 
     class meta:
@@ -93,6 +115,54 @@ class ValstybineIstaiga(JuridinisAsmuo):
         title = "Valstybinė įstaiga"
 
 
+class Pastatas(Objektas):
+    koordinates = P("Koordinatės", Koordinates)
+    adresas = P("Adresas", Adresas)
+    aukstu_skaicius = P("Aukštų skaičius")
+    statybos_metai = P("Statybos metai")
+    pastato_tipas = P("Pastato tipas")
+    sildymo_kaina = P("Vidutinė sezono šilumos kaina")
+    oro_tarsa = P("Oro tarša")
+    rinkos_verte = P("Rinkos vertė")
+
+
+class MokymoIstaiga(Objektas):
+    pavadinimas = P("Pavadinimas")
+    institucijos_tipas = P("Institucijos tipas")
+    pastatas = P("Pastatas", Pastatas)
+    adresas = P("Adresas", Adresas)
+
+
+class Profesija(Objektas):
+    pavadinimas = P("Pavadinimas")
+    sritis = P("Sritis")
+    darbo_vietų_skaičius = P("Darbo vietų skaičius")
+    laisvu_darbo_vietu_skaicius = P("Laisvų darbo vietų skaičius")
+
+
+class StudijuPrograma(Objektas):
+    pavadinimas = P("Pavadinimas")
+    studiju_pakopa = P("Studijų pakopa")
+    studiju_sritis = P("Studijų sritis")
+    programos_valstybinis_numeris = P("Programos valstybinis numeris")
+    aprasymas = P("Aprašymas")
+    mokymo_istaiga = P("Mokymo įstaiga")
+    trukme_metais = P("Trukmė metais")
+    forma = P("Forma (nuolatinė, neakivaizdinė)", choices=('nuolatinė', 'neakyvaizdinė'))
+    profesija = P("Profesija", Profesija)
+
+
+class StudijuDalykas(Objektas):
+    pavadinimas = P("Pavadinimas")
+    studiju_programa = P("Studijų programa", StudijuPrograma)
+    privaloma = P("Privaloma")
+    kreditai = P("Kreditai")
+
+
+class Issilavinimas(Laikotarpis):
+    studiju_programa = P("Studijų programa", StudijuPrograma)
+
+
 class Asmuo(Agentas):
     vardas = P("Vardas")
     pavarde = P("Pavardė")
@@ -106,18 +176,37 @@ class Asmuo(Agentas):
     nekilnojamojo_turto_verte = P("Nekilnojamo turto vertė")
     teistumas = P("Teistumas")
     partija = P("Narystė partijoje")
+    tautybė = P("Tautybė")
+    pilietybe = P("Pilietybė")
+    gimtoji_kalba = P("Gimtoji kalba")
+    išsilavinimas = P("Išsilavinimas", Issilavinimas)
+    teistumas = P("Teistumas")
+    seima = P("Šeima", 'Seima')
+    santuoka = P("Santuoka", 'Santuoka')
 
     class meta:
         title = "Asmuo"
 
 
+class Seima(Objektas):
+    tevas = P("Tėvas", Asmuo)
+    motina = P("Motina", Asmuo)
+    vaikas = P("Vaikas", Asmuo)
+
+
+class Santuoka(Laikotarpis):
+    sutuoktinis = P("Sutuoktinis", Asmuo)
+
+
 class Darbuotojas(Asmuo):
     pareigos = P("Pareigos")
-    darboviete = P("Valstybinį įstaiga, kurioje dirba")
+    profesija = P("Profesija", Profesija)
+    darboviete = P("Darbovietė", Imone)
     darbo_el_pastas = P("El. paštas")
     darbo_tel_nr = P("Tel. nr.")
+    darbo_vietos_adresas = P("Adresas", Adresas)
+    darbo_vietos_koordinates = P("Koordinatės", Koordinates)
     pajamos = P("Pajamos")
-    darboviete = P("Darbovietė")
 
     class meta:
         title = "Darbuotojas"
@@ -129,9 +218,9 @@ class ValstybesTarnautojas(Darbuotojas):
         title = "Valstybės tarnautojas"
 
 
-class Sandoris(Thing):
-    subjektas = P("Subjektas", Agent)
-    objektas = P("Objektas", Agent)
+class Sandoris(Objektas):
+    subjektas = P("Subjektas", Agentas)
+    objektas = P("Objektas", Agentas)
     verte = P("Sandorio vertė")
     veiksmas = P("Subjekto atliktas veiksmas")
     data = P("Sandoro data")
@@ -149,29 +238,22 @@ class ValstybesTarnautojoSandoris(Sandoris):
         title = "Valstybės tarnautojo sandoris"
 
 
-class Naryste:
-    narys = P("Narys", Agent)
-    grupe = P("Grupė", Agent)
-    pradzia = P("Pradžios data")
-    pabaiga = P("Pabaigos data")
+class Laikotarpis(Objektas):
+    pradzia = P("Pradžia")
+    pabaiga = P("Pabaiga")
+
+
+class Naryste(Laikotarpis):
+    narys = P("Narys", Agentas)
+    grupe = P("Grupė", Agentas)
     pareigos = P("Pareigos")
 
 
-class Pastatas(Thing):
+class Ivykis(Objektas):
     koordinates = P("Koordinatės", Koordinates)
     adresas = P("Adresas", Adresas)
-    aukstu_skaicius = P("Aukštų skaičius")
-    statybos_metai = P("Statybos metai")
-    pastato_tipas = P("Pastato tipas")
-    sildymo_kaina = P("Vidutinė sezono šilumos kaina")
-    oro_tarsa = P("Oro tarša")
-    rinkos_verte = P("Rinkos vertė")
-
-
-class Ivykis(Thing):
-    koordinates = P("Koordinatės", Koordinates)
-    adresas = P("Adresas", Adresas)
-    laikas = P("Laikas")
+    pradzia = P("Įvykio pradžia")
+    pabaiga = P("Įvykio pabaiga")
 
 
 class PolicijojeRegistruotasIvykis(Ivykis):
@@ -184,16 +266,16 @@ class SeimoNarys(ValstybesTarnautojas):
         title = "Seimo narys"
 
 
-class NarysteFrakcijoje(Naryste):
-    narys = P("Seimo narys", SeimoNarys)
-    grupe = P("Frakcija", Grupe)
-
-
-class Grupe(Agent):
+class Grupe(Agentas):
     pavadinimas = P("Pavadinimas")
     ikurimo_data = P("Įkurimo data")
     likvidavimo_data = P("Likvidavimo data")
     logotipas = P("Logotipas")
+
+
+class NarysteFrakcijoje(Naryste):
+    narys = P("Seimo narys", SeimoNarys)
+    grupe = P("Frakcija", Grupe)
 
 
 class Frakcija(Grupe):
@@ -201,7 +283,7 @@ class Frakcija(Grupe):
     partija = P("Partija")
 
 
-class Dokumentas(Thing):
+class Dokumentas(Objektas):
     pavadinimas = P("Pavadinimas")
     dokumento_tekstas = P("Dokumento tekstas")
 
@@ -213,8 +295,7 @@ class TeisesAktas(Dokumentas):
     eurovoc_terminas = P("Eurovoc terminas")
 
 
-
-class Balsas(Thing):
+class Balsas(Objektas):
     balso_reiksme = P("Balso reikšmė")
     laikas = P("Laikas")
     seimo_narys = P("Seimo narys", SeimoNarys)
@@ -225,7 +306,7 @@ class Balsas(Thing):
     teises_aktas = P("Teisės aktas", TeisesAktas)
 
 
-class Pasisakymas(Thing):
+class Pasisakymas(Objektas):
     laikas = P("Pasisakymo data")
     tekstas = P("Pasisakymo tekstas")
     pasisakiusysis = P("Pasisakiusysis", Asmuo)
@@ -240,7 +321,7 @@ class PasisakymasStenogramoje(Pasisakymas):
     teisės_akto_punktas = P("Teisės akto puntas")
 
 
-class TeisesAktoPunktas(Thing):
+class TeisesAktoPunktas(Objektas):
     teises_aktas = P("Teisės aktas")
     tekstas = P("Teisės akto punkto tekstas")
     straipsnis = P("Teisės akto straipsnis")
@@ -248,13 +329,13 @@ class TeisesAktoPunktas(Thing):
     tipas = P("Teisės akto punkto tipas")
 
 
-class TeisesAktoPakeitimas(Thing):
+class TeisesAktoPakeitimas(Objektas):
     keiciamas_punktas = P("Keičiamas punktas")
     naujas_punktas = P("Naujas punktas")
     projektas = P("Teisės akto projektas")
 
 
-class StatistinisRodiklis(Thing):
+class StatistinisRodiklis(Objektas):
     # https://www.w3.org/TR/vocab-data-cube/
     laikotarop_pradzia = P("Laikotarpio pradžia")
     laikotarop_pabaiga = P("Laikotarpio pabaiga")
@@ -270,7 +351,17 @@ class Bankrotas(Ivykis):
     isieskomos_skolos_dalis = P("Išieškomos skolos dalis")
     bankroto_proceso_iniciatorius = P("Bankroto proceso iniciatorius")
 
-class ViesasisPirkimas(Thing):
+
+class Projektas(Ivykis):
+    pavadinimas = P("Projekto pavadinimas")
+    prasomos_paramos_suma = P("Prašomos paramos suma")
+    skirtos_paramos_suma = P("Skirtos paramos suma")
+    paramos_teikejas = P("Paramos teikėjas", Agentas)
+    vykdytojas = P("Vykdytojas", Agentas)
+    sritis = P("Sritis")
+
+
+class ViesasisPirkimas(Objektas):
     # http://standard.open-contracting.org/
     ocid = P("Globalus identifikatorius")
     id = P("Vidinis identifikatorius")
@@ -278,146 +369,164 @@ class ViesasisPirkimas(Thing):
     zyme = P("Žymė")
     dalyvis = P("Viešojo pirkimo dalyviai", Imone)
     uzsakovas = P("Užsakovas")
+    projektas = P("Projektas", Projektas)
 
 
-Metrikų knygos lapas	Metrikų knyga
-Metrikų knygos lapas	Lapo numeris
-Metrikų knygos lapas	Lapo paveiksliukas
-Metrikų knyga	Laikotarpis
-Metrikų knyga	Pastatas
-Metrikų knyga	Skaitmeninimo data
-Pastatas	Pastato istorinis administracinis suskirstymas
-Pastato istorinis administracinis suskirstymas	Priklausė administraciniam vienetui
-Pastato istorinis administracinis suskirstymas	Pradžios data
-Pastato istorinis administracinis suskirstymas	Pabaigos data
-Vandens telkinys	Pavadinimas
-Vandens telkinys	Geografinės koordinatės
-Turizmo objektas	Pavadinimas
-Turizmo objektas	Rūšis
-Turizmo objektas	Geografinės koordinatės
-Saugoma teritorija	Pavadinimas
-Saugoma teritorija	Geografinės koordinatės
-Kultūros vertybė	Pavadinimas
-Kultūros vertybė	Geografinės koordinatės
-Kultūros vertybė	Rūšis
-Lietuviškas žodis	Žodis
-Lietuviškas žodis	Žodžio prasmės aprašymas
-Lietuviškas žodis	Žodžio naudojimo pavyzdžiai
-Lietuviškas žodis	Gramatinė forma
-Lietuviškas žodis	Kaitymas kalbos dalimis
-Lietuviškas žodis	Galimos dodžio formos
-Lietuviškas žodis	Žodžio šaknis
-Lietuviškas žodis	Semantinė kategorija
-Call data record (CDR)	Tel. nr.
-Call data record (CDR)	Skambučio pradžios data ir laikas
-Call data record (CDR)	Kada atsiliepta, data ir laikas
-Call data record (CDR)	Kada baigtas pokalbis, data ir laikas
-Mokymo įstaiga	Pavadinimas
-Mokymo įstaiga	Institucijos tipas
-Mokymo įstaiga	Pastatas
-Studijų programa	Pavadinimas
-Studijų programa	Studijų pakopa
-Studijų programa	Studijų sritis
-Studijų programa	Programos valstybinis numeris
-Studijų programa	Aprašymas
-Studijų programa	Mokymo įstaiga
-Studijų programa	Trukmė metais
-Studijų programa	Forma (nuolatinė, neakivaizdinė)
-Studijų programa	Profesija
-Studijų dalykas	Pavadinimas
-Studijų dalykas	Studijų programa
-Studijų dalykas	Privaloma
-Studijų dalykas	Kreditai
-Studentas	Mokymo įstaiga
-Studentas	Šalis
-Studentas	Mokymo įstaiga iš kurios atvyko (užsieniečiams)
-Studentas	Pilietybė
-Profesija	Pavadinimas
-Profesija	Sritis
-Profesija	Darbo vietų skaičius
-Profesija	Laisvų darbo vietų skaičius
-Darbo vieta	Profesija
-Darbo vieta	Pavadinimas
-Darbo vieta	Geografinės koordinatės
-Liga	Pavadinimas
-Susirgimas	Liga
-Susirgimas	Susirgimo pradžia
-Susirgimas	Susirgimo pabaiga
-Susirgimas	Profesija
-Susirgimas	Geografinės koordinatės
-Visitor location register	Kilmės šalis
-Visitor location register	Registracijos data ir laikas
-Visitor location register	Telefono modelis
-Šalis	Lietuviškas pavadinimas
-Šalis	ISO-3166 kodas
-Kapinės	Pavadinimas
-Kapinės	Geografinės koordinatės
-Kapinės	Seniūnija
-Kapinės	Savivaldybė
-Kapinės	Miestas/Rajonas
-Kapas	Kapinės
-Kapas	Nuotrauka
-Kapas	Vardas
-Kapas	Pavardė
-Kapas	Gimimo data
-Kapas	Mirties data
-Lietuvos pilietis	Vardas
-Lietuvos pilietis	Gimimo data
-Lietuvos pilietis	Gimimo Miestas/Rajonas
-Parkavimo aikštelė	Geografinės koordinatės
-Parkavimo aikštelė	Parkavimo kaina
-Parkavimo aikštelė	Darbo laikas
-Parkavimo aikštelė	Laisvų vietų skaičius
-Projektas	Prašomos paramos suma
-Projektas	Skirtos paramos suma
-Projektas	Paramos teikėjas
-Projektas	Pavadinimas
-Projektas	Vykdytojas
-Projektas	Pradžios data
-Projektas	Pabaigos data
-Projektas	Geografinės koordinatės
-Projektas	Sritis
-Rinkimai	Pavadinimas
-Rinkimai	Rūšis
-Rinkimų etapas	Pavadinimas
-Rinkimų etapas	Data
-Rinkimų apylinkė	Pavadinimas
-Rinkimų apylinkė	Geografinės koordinatės
-Rinkimų apylinkė	Rinkimų apygarda
-Rinkimų apylinkė	Pastatas
-Rinkimų apygarda	Pavadinimas
-Rinkimų apygarda	Geografinės koordinatės
-Partija	Rinkimai
-Partija	Pavadinimas
-Partija	Vadovas
-Rinkimų kandidatas	Vardas
-Rinkimų kandidatas	Pavardė
-Rinkimų kandidatas	Gimimo data
-Rinkimų kandidatas	Gimtoji kalba
-Rinkimų kandidatas	Išsilavinimas
-Rinkimų kandidatas	Tautybė
-Rinkimų kandidatas	Nuotrauka
-Rinkimų kandidatas	Teistumas
-Rinkimų kandidatas	Grynieji pinigai
-Rinkimų kandidatas	Nekilnojamo turto vertė
-Rinkimų kandidatas	Pajamos
-Rinkimų kandidatas	Darbovietė
-Rinkimų kandidatas	Narystė partijoje
-Rinkimų kandidatas	Išsilavinimas
-Rinkimų kandidatas	Sandoris
-Rinkimų kandidatas	Rinkimai
-Rinkimų kandidatas	Eilė sąraše
-Rinkimų kandidatas	Sąrašas
-Rinkimų kandidatas	Sutuoktinis
-Rinkimų kandidatas	Vaikas
-Autobusų stotelė	Pavadinimas
-Autobusų stotelė	Geografinės koordinatės
-Maršrutas	Pavadinimas
-Maršrutas	Stotelių sąrašas
-Biudžeto fiskalinis įrašas	Suma
-Biudžeto fiskalinis įrašas	Pajamos/Išlaidos
-Biudžeto fiskalinis įrašas	Sritis
-Biudžeto fiskalinis įrašas	Mokesčių mokėtojas
-Biudžeto fiskalinis įrašas	Asignavimų valdytojas
-Biudžeto fiskalinis įrašas	Data ir laikas
-Biudžeto fiskalinis įrašas	Geografinės koordinatės
+class MetrikuKnyga(Objektas):
+    laikotarpis = P("Laikotarpis")
+    pastatas = P("Pastatas")
+    skaitmeninimo_data = P("Skaitmeninimo data")
+
+
+class MetrikuKnygosLapas(Objektas):
+    metrikų_knyga = P("Metrikų knyga", MetrikuKnyga)
+    lapo_numeris = P("Lapo numeris")
+    lapo_paveiksliukas = P("Lapo paveiksliukas")
+
+
+class ErdvinisObjektas(Objektas):
+    koordinates = P("Koordinatės", Koordinates)
+    konturas = P("Geografinis kontūras su koordinatėmis")
+
+
+class VandensTelkinys(ErdvinisObjektas):
+    pavadinimas = P("Pavadinimas")
+
+
+class TurizmoObjektas(ErdvinisObjektas):
+    pavadinimas = P("Pavadinimas")
+    rusis = P("Rūšis")
+
+
+class SaugomaTeritorija(ErdvinisObjektas):
+    pavadinimas = P("Pavadinimas")
+
+
+class KurturosVertybe(ErdvinisObjektas):
+    pavadinimas = P("Pavadinimas")
+    rusis = P("Rūšis")
+
+
+class LietuviskasZodis(Objektas):
+    zodis = P("Žodis")
+    zodzio_prasmes_aprasymas = P("Žodžio prasmės aprašymas")
+    zodzio_naudojimo_pavyzdziai = P("Žodžio naudojimo pavyzdžiai")
+    gramatine_forma = P("Gramatinė forma")
+    kaitymas_kalbos_dalimis = P("Kaitymas kalbos dalimis")
+    galimos_zodzio_formos = P("Galimos žodžio formos")
+    zodzio_saknis = P("Žodžio šaknis")
+    semantine_kategorija = P("Semantinė kategorija")
+
+
+class SkabuciuRegistroIrasas(Objektas):
+    """Call data record (CDR)"""
+    tel_nr = P("Tel. nr.")
+    skambucio_pradzia = P("Skambučio pradžios data ir laikas")
+    kada_atsiliepta = P("Kada atsiliepta, data ir laikas")
+    kada_baigtas_pokalbis = P("Kada baigtas pokalbis, data ir laikas")
+
+
+class Studentas(Asmuo):
+    mokymo_istaiga = P("Mokymo įstaiga", MokymoIstaiga)
+    salis = P("Šalis")
+    mokymo_istaiga_is_kurios_atvyko = P("Mokymo įstaiga iš kurios atvyko (užsieniečiams)")
+
+
+class Liga(Objektas):
+    pavadinimas = P("Pavadinimas")
+
+
+class Susirgimas(Ivykis):
+    liga = P("Liga")
+    asmuo = P("Asmuo", Asmuo)
+
+
+class TelefonoRegistracijaPrieMobTinklo(Ivykis):
+    """Visitor location register"""
+    kilmes_salis = P("Kilmės šalis")
+    tel_nr = P("Telefono modelis")
+
+
+class Salis(ErdvinisObjektas):
+    pavadinimas = P("Lietuviškas pavadinimas")
+    iso_3166_kodas = P("Šalies ISO-3166 kodas")
+
+
+class Kapines(ErdvinisObjektas):
+    pavadinimas = P("Pavadinimas")
+    adresas = P("Adresas", Adresas)
+    tikejimas = P("Tikėjimas")
+
+
+class Kapas(ErdvinisObjektas):
+    kapines = P("Kapinės", Kapines)
+    nuotrauka = P("Nuotrauka")
+    asmuo = P("Asmuo", Asmuo)
+
+
+class LietuvosPilietis(Asmuo):
+    registracijos_adresas = P("Registracijos adresas", Adresas)
+    nuolatine_gyvenamoji_vieta = P("Nuolatinė gyvenamoji vieta", Adresas)
+
+
+class ParkavimoAikstele(ErdvinisObjektas):
+    kaina = P("Parkavimo kaina")
+    darbo_laikas = P("Darbo laikas")
+    laisvu_vietu_skaicius = P("Laisvų vietų skaičius")
+
+
+class Rinkimai(Ivykis):
+    pavadinimas = P("Pavadinimas")
+    rūšis = P("Rūšis", choices=("prezidento", "seimo", "savivaldybių"))
+
+
+class RinkimuEtapas(Ivykis):
+    pavadinimas = P("Pavadinimas")
+    rinkimai = P("Rinkimai", Rinkimai)
+
+
+class RinkimuApygarda(ErdvinisObjektas):
+    pavadinimas = P("Pavadinimas")
+
+
+class RinkimuApylinke(ErdvinisObjektas):
+    pavadinimas = P("Pavadinimas")
+    apygarda = P("Rinkimų apygarda", RinkimuApygarda)
+    pastatas = P("Pastatas")
+
+
+class Partija(Grupe):
+    pavadinimas = P("Pavadinimas")
+    rinkimai = P("Rinkimai")
+    vadovas = P("Vadovas", Asmuo)
+
+
+class RinkimuKandidatas(Asmuo):
+    partija = P("Partija", Naryste(narys='self', grupe=Partija))
+    sandoris = P("Sandoris", Sandoris)
+    rinkimai = P("Rinkimai")
+    eile_sarase = P("Eilė sąraše")
+    sarasas = P("Sąrašas")
+
+
+class Stotele(ErdvinisObjektas):
+    pavadinimas = P("Pavadinimas")
+
+
+class AutomusoStotele(Stotele):
+    pass
+
+
+class Marsrutas(Objektas):
+    stotele = P("Stotelė", Stotele)
+    laikas = P("Atvykimo į stotelę laikas", DataLaikas)
+
+
+class BiudzetoFiskalinisIrasas(Objektas):
+    suma = P("Suma")
+    saskaita = P("Sąskaita", choices=("pajamos", "išlaidos"))
+    sritis = P("Sritis")
+    mokesciu_moketojas = P("Mokesčių mokėtojas")
+    asignavimu_valdytojas = P("Asignavimų valdytojas")
+    laikas = P("Data ir laikas", DataLaikas)
+    adresas = P("Adresas", Adresas)

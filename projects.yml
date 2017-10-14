@@ -2,8 +2,8 @@
 title: places.openmap.lt
 data-needed:
   Adresas:
-    - ilguma
-    - platuma
+    - koordinates.ilguma
+    - koordinates.platuma
     - apskritis
     - rajonas
     - savivaldybe
