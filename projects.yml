@@ -1,9 +1,422 @@
 ---
+title: Prekybos alkoholiu licencijos
+comments: >
+  Gerai būtų licencijų, sertifikatų, leidimų (pvz alkoholio prekybai) įmonėms
+  sąrašo. PVZ dabar kiekviena savivaldybė alkoholio prekybos licencijų sąrašus
+  skelbia skirtingais formatais arba iš vis neskelbia. Tas pats su
+  sertifikatais.
+data-needed:
+  MaitinimoIstaiga:
+    - imone.pavadinimas
+    - licencija.prekyba_alkoholiu
+    - koordinates
+    - adresas
+---
+title: Statistikos departamento duomenys
+comments: >
+  Lietuvos statistikos departamento duomenis reiktų pateikti patogiu masiniams
+  duomenų nusiurbimams patogiu formatu (csv, txt). Ir kad mažiau būtumėm
+  priklausomi nuo jų kintančios svetainės technologijų. Dabar stat dep duomenys
+  labiau pritaikyti on spot pažiūrėjimui.
+data-needed:
+  StatistinisRodiklis:
+    - pradzia
+    - pabaiga
+    - dimensija
+    - atributas
+    - reiksme
+    - matavimo_vienetas
+---
+title: Bankrotų statistika
+comments: >
+  Reiktų pratęsti ir pagerinti kažkada pradėtą bankrotų departamento darbą
+  viešinti bankrotų duomenis patogiu formatu. Reikalingi ne tik bankrutavusių
+  skaičiai, tačiau ir išieškoma skolos dalis ir kt. kas dabar yra tik pdf'uose.
+  Žr. čia:
+  http://www.avnt.lt/veiklos-sritys/nemokumas-2/nemokumo-duomenys-ir-analiz/
+data-needed:
+  Bankrotas:
+    - imone
+    - laikas
+    - isieskomos_skolos_dalis
+    - bankroto_proceso_iniciatorius
+---
+title: parašykjiems.lt
+comments: >
+  Galimybė susisiekti su savo išrinktu atstovu. Reikalingi adresų duomenys iš
+  registrų centro.  Dabartinis projektas veikia nusiurbiant duomenis iš
+  registrų centro (web-scraping).
+data-needed:
+  ValstybineIstaiga:
+    - pavadinimas
+    - logotipas
+    - registracijos_numeris
+    - registracijos_adresas
+    - priklauso_istaigai
+    - pastatas.koordinates
+    - pastatas.adresas
+    - veiklos_sritis
+    - el_pastas
+    - tel_nr
+    - tinklapis
+    - iregistravimo_data
+    - isregistravimo_data
+  ValstybesTarnautojas:
+    - vardas
+    - pavarde
+    - nuotrauka
+    - pareigos
+    - darboviete
+    - darbo_el_pastas
+    - darbo_tel_nr
+    - darbo_vietos_adresas
+    - darbo_vietos_koordinates
+---
+title: Seimo narių balsavimai
+coments: >
+  Seimo narių balsavimų statistinė analizė: balsavimo ideologiniai ir kitokie
+  dėsningumai.
+data-needed:
+  SeimoNarys:
+    - vardas
+    - pavarde
+    - nuotrauka
+    - pareigos
+  Frakcija:
+    - pavadinimas
+    - sutrumpinimas
+    - partija.pavadinimas
+    - naryste
+  Balsas:
+    - balso_reiksme
+    - laikas
+    - seimo_narys
+    - frakcija
+    - balsavimas
+    - uzsiregistravo
+    - klausimas
+    - teises_aktas
+  SeimoBalsavimas:
+  SeimeSvarstytasKlausimas:
+    - etapas
+---
+title: manoseimas.lt
+coments: >
+  Projektas padedantis apsispręsti už ką balsuoti rinkimų metu ir stebėti
+  išrinktuosius.
+
+  Reikalingi duomenys:
+
+  Seimo narių profiliai - vardas, pavardė, gimimo data, narystės frakcijose,
+  komitetuose ir parlamentinės grupėse duomenys, kadencijos pradžia ir pabaiga,
+  Seimo nario nuotrauka, seimo nario pareigos.
+
+  Frakcijų duomenys - frakcijos pilnas pavadinimas, frakcijos trumpinys,
+  frakcijos susikūrimo ir panaikinimo datos, frakcijos logotipas.
+
+  Balsavimai dėl teisės aktų - kas balsavo, kokiai frakcijai priklausė, teisės
+  aktas už kurį buvo balsuota, balsavimo klausimas, balso reikšmė, balsavimo
+  data, registracija balsavimui.
+
+  Stenogramų duomenys - stenogramos tekstas suskirstytas pagal
+  pasisakiusiuosius, kalbėjusio žmogaus vardas, pavardė, gimimo metai,
+  pareigos, įstaigos ar organizacijos pavadinimas, frakcija (jei Seimo narys),
+  posėdžio pirmininkas, pasisakymo data, balsavimas ir teisės aktas apie kurį
+  buvo kalbama.
+
+  Teisės aktų duomenys - teisės akto pavadinimas, numeris, paskelbimo data,
+  įsigaliojimo data, kas teikė.
+data-needed:
+---
+title: teisynas.lt
+coments: >
+  Projektas padedantis sekti įstatymus ir geriau suprasti jų struktūrą.
+
+  Reikalingi duomenys:
+
+  Teisės aktų duomenys - teisės akto tekstas suskirstytas pagal straipsnius su
+  nuorodomis į keičiamą straipsnio dalį, teisės akto struktūra, teisė akto
+  tekstas (suskaidytas straipsniais, punktais ir pan.), nuorodos į vykusius
+  balsavimus dėl kiekvieno straipsnio, nuorodos į stenogramas, kurios buvo
+  diskutuota apie tam tikrus straipsnio punktus, teisės akto pavadinimas,
+  numeris, kada įsigalioja, kada paskelbtas, kada nustoja galioti, ryšys su
+  keičiamu teisės aktu, susiję dokumentai.
+
+  Teisės aktų aiškinamieji raštas - aiškinamojo rašto tekstas, susiejimas su
+  teisė akto dokumentu.
+
+  Stenogramų duomenys - stenogramų tekstai suskaidyti pagal pasisakiusiuosius,
+  kas pasisakė, ką pasakė, vardas, pavardė, gimimo metai, pareigos, įstaiga,
+  frakcija (jei Seimo narys).
+
+  Balsavimų duomenys - balsavimo data, teisės aktas ir straipsnis ar straipsnių
+  grupė už kuriuos buvo balsuota.
+
+  Teikiamos pastabos teisės aktų projektams - kas teikė, pastabos tekstas,
+  straipsnis ar jų grupė, teikiančiojo asmens vardas, pavardė, gimimo data,
+  pareigos, įstaiga, frakcija (jei Seimo narys).
+
+  Juridinių asmenų registras - panaudojamo tikslas siejant įstaigas iš
+  stenogramų, teikiamų pastabų ir pan.
+data-needed:
+---
+title: Viešųjų pirkimų duomenys
+coments: >
+  Būtina atverti visus duomenis, susijusius su viešaisiais pirkimais, pradedant
+  nuo planavimo iki sutarties uždarymo. Tobula, jei būtų įgyvendintas OCDS
+  (https://www.open-contracting.org/data-standard/) atvirų duomenų standartas,
+  apibrėžiantis, kokie viešųjų pirkimų duomenys ir kaip jie turi būti atverti.
+data-needed:
+---
+title: Lietuvos lankytinų vietos
+coments: >
+  Tai jau veikiantis projektas places.openmap.lt Jau beveik dešimt metų
+  kaupiami duomenis apie turizmui įdomius objektus, pradedant nuo lankytinų
+  vietų (muziejai, piliakalniai, paveldas, turizmo informaciniai centrai,
+  pažintiniai takai ir pan.) iki keliaujant reikalingų duomenų (apgyvendinimas,
+  maitinimas, stovyklavietės ir pan.).
+
+  Dabar duomenis kaupia tik atviro žemėlapio OpenStreetMap entuziastai. Labai
+  daug darbo nukristų (jėgas būtų galima nukreipti labiau kūrybine linkme), jei
+  įvairios saugomos teritorijos, savivaldybės ir pan. atvirai skelbtų savo
+  lankytinų vietų sąrašą su koordinatėmis. Tada tiek OpenStreetMap galėtų
+  susirinkti trūkstamus duomenis, tiek atgal iš OpenStreetMap būtų siunčiama
+  informacija, kokių objektų trūksta valstybiniame registre, ar kuri
+  informacija yra netiksli (taigi naudą gautų abi pusės).
+
+  Kai duomenys atsidurtų OpenStreetMap duomenų bazėje, jie būtų naudojami ne
+  tik places.openmap.lt, bet nukeliautų ir į galybę OSM pagrindu kuriamų
+  internetinių žemėlapių, Garmin navigatorius, į išmaniąsias programėles, upių
+  turizmo žemėlapius, iš OSM duomenų spausdinamus popierinius žemėlapius ir
+  pan. Taip pat tokius duomenis galėtų laisvai naudoti ir kitos Lietuvos
+  turizmą skatinančios svetainės/projektai (tarkim lietuvon.lt), kurie dabar
+  virš pusės savo laiko gaišta ieškodami tikslių koordinačių, vietoje to, kad
+  užsiimtu patogių svetainių, paslaugų kūrimu ar tiesiog vietos turizmo
+  viešinimu, populiarinimu.
+
+  Duomenys:
+
+  1. Kultūros vertybių registras
+
+  2. Valstybės saugomų teritorijų tarnybos (kol kas vis dar kuriamas?)
+     registras su turizmo objektais, nacionalinių/regioninių parkų, draustinių
+     ribos
+
+  3. IMŪEPIS (www.valstybiniaimiskai.lt) turima turizmo objektų informacija
+
+  4. maps.lt už Europos Sąjungos pinigus surinkti turizmo duomenys skiltyje
+     „Keliaujantiems lėtai“.
+
+  5. Upių debito momentiniai rodikliai ir prognozė (nežinau tiksliai, pas ką
+     yra šie duomenys, berods aplinkos ministerijoje? hidrometeorologijos
+     tarnyboje?)
+
+  Ir kita man nežinoma/nepaminėta su turizmu susijusi informacija.
+data-needed:
+---
+title:
+coments: >
+data-needed:
+---
+title:
+coments: >
+data-needed:
+---
 title: places.openmap.lt
 data-needed:
   Adresas:
-    - koordinates.ilguma
-    - koordinates.platuma
+    - koordinates
     - apskritis
     - rajonas
     - savivaldybe
+---
+title: Metrikų skaitmenizavimas
+comments: >
+  epaveldas.lt svetainėje galima rasti dalį paskelbtų gimimo, santuokos ir
+  mirties metrikų knygas. Knygos skelbiamos skenuotų paveiksliukų pavidalu,
+  kuriuose nėra galimybės ieškoti pagal teksto turinį.
+
+  Tam, kad ištraukti tekstą iš metrikų paveiksliukų reikalingas rankinis
+  žmogaus darbas, apie tai ir yra projekto idėja - skaitmenizuoti paveiksliukus
+  pasitelkiant crowd sourcingą.
+
+  Reikalingi duomenys:
+
+  Skaitmeninti metrikų paveiksliukai su meta duomenimis - paveiksliukas,
+  metrikų knygos pavadinimas, laikotarpis, vietovė (geografinės koordinatės),
+  vietovės istorinės administracinės ribos (geografiniai duomenys),
+  paveiksliuko puslapis knygoje.
+data-needed:
+---
+title: Atviras žemėlapis
+comments: >
+  Jau 13 metų kuriamas atviras pasaulio žemėlapis OpenStreetMap. Pagrindinis
+  duomenų kaupimo būdas - vietos apžiūra, ortofotografijų naudojimas.
+
+  Jei būtų atverta eilė valstybinių registrų/duomenų rinkinių, būtų galima daug
+  greičiau pildyti OpenStreetMap duomenų bazę, bei teikti atgal atitinkamų
+  registrų/duomenų rinkinių valdytojams pastabas apie duomenų trūkumus.
+
+  OpenStreetMap duomenis yra atviri, juos naudoti gali bet kas (net ir
+  komerciniams tikslams). Duomenys jau naudojami šimtuose internetinių
+  žemėlapių, kuriant Garmin navigatorių žemėlapius, išmaniąsias programėles,
+  spausdintus popierinius žemėlapius ir pan.
+
+  Šiuo metu jau yra naudojami tokie atviri duomenys (imant informaciją į
+  OpenStreetMap ir teikiant atgal pastabas apie netikslumus duomenų
+  valdytojams):
+
+  1. Vilniaus miesto savivaldybė: adresų duomenys
+
+  2. Nacionalinė žemės tarnyba (per geoportal.lt): GDR duomenys: gyvenvietės,
+     keliai
+
+  3. Lietuvos automobilių kelių direkcija: keliai, viešasis transportas
+
+  Reikalingi duomenys:
+
+  1. Registrų centro VISOS LIETUVOS adresų registras (tik gyvenvietė, gatvė,
+     numeris ir koordinatės, be nekilnojamo turto įvertinimų ir pan. duomenų)
+
+  2. Lietuvos Upių, ežerų ir tvenkinių registras.
+
+  3. Saugomų teritorijų duomenys (ribos, objektai)
+
+  4. Kultūros vertybių registras.
+data-needed:
+---
+title: Lietuvių kalbos žodyno turtinimas
+comments: >
+  Kai kuriomis užsienio kalbomis (tarkim angliškai), galima rasti įvairių
+  internetinių paslaugų (sąrašynų ar pan.), kuriose galima užsisakyti, kad
+  kartą į dieną, ar kartą į savaitę būtų atsiunčiama žinutė apie kokį nors
+  vieną įdomų, bet rečiau naudojamą žodį. T.y. žodis, ką jis reiškia, naudojimo
+  pavyzdžiai.
+
+  Tokia paslauga leidžia žmonėms geriau susipažinti su dominančia (savo) kalba,
+  plėsti savo žodyną, saugoti kalbą. Norint sukurti tokią paslaugą, reikia, kad
+  būtų atverti Lietuvių kalbos didžiojo žodyno duomenys (lkz.lt). Atvėrus
+  duomenis, būtų galima organizuoti įdomių žodžių atrinkimą ir platinimą
+  norintiems per e-paštą, svetainę ar socialinius tinklus. (Galima atverti ne
+  visus, o tik įdomesnius žodžius, patį parinkimą paliekant Lietuvių kalbos
+  institutui).
+data-needed:
+---
+title: Valstybinių įstaigų skambučių centro duomenys
+comments: >
+  Atverti valstybinių įstaigų (sodra, VMI, savivaldybės, ligoninės( skambučių
+  centrų skambučių registro (techniškai tai vadinasi CDR (call data record)
+  duomenys. Iš tokių duomenų galima išskaičiuoti ir sekti našumo rodiklius -
+  skambučių atsiliepimo santykį (answer success rate), vidutinę laukimo trukmę,
+  vidutinę pokalbio trukmę, atsiliepimų dažnį ir etc. Tokia vieša informacija
+  pagerintų aptarnavimo telefonu paslaugų kokybę. 
+data-needed:
+---
+title: užsienio studentų detalioji statistika
+comments: >
+  Jei būtų prieinami ne tik studentų registro ataskaitos, kokios dabar
+  prieinamos [1] ir [2], bet ir patys (ne asmens) duomenys, galima būtų lengvau
+  atlikti įvairias analizes - parodyti pokytį pagal metus, grupavimą pagal
+  pasaulio regionus, specialybes mokymo įstaigose ir pan.
+
+  [1] http://rsvis.emokykla.lt/cognos8/cgi-bin/cognosisapi.dll?b_action=cognosViewer&ui.action=run&ui.object=%2fcontent%2ffolder%5b%40name%3d%27Studijos%27%5d%2freport%5b%40name%3d%27Studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas%27%5d&ui.name=Studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas&run.outputFormat=&run.prompt=true
+  [2] http://rsvis.emokykla.lt/cognos8/cgi-bin/cognosisapi.dll?b_action=cognosViewer&ui.action=run&ui.object=%2fcontent%2ffolder%5b%40name%3d%27Studijos%27%5d%2freport%5b%40name%3d%27Dalin%c4%97se%20studijose%20studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas%27%5d&ui.name=Dalin%c4%97se%20studijose%20studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas&run.outputFormat=&run.prompt=true&%20&cv.header=false
+data-needed:
+---
+title: Tourist location updates events
+comments: >
+  Čia ne visiškai papuola po "open data" konceptu, bet idėja jau daug metų
+  kirba galvoje tai pasidalinsiu. 
+
+  Problema: Šiuo metu turistų skaičius ir kilmės šalys yra surenkamos iš
+  apklausų. Labai nepatikima, brangu ir retai vyksta. Nepastebimos tendencijos
+  ir outlier'iai. 
+
+  Ideja: Atvykusio užsieniečio mobilus telefonas registruojasi prie Lietuvos
+  ryšio operatorių (T2, Bitė, Telia) (tehcniškai prie VLR - visitors location
+  register). Jeigu operatoriai pasidalintų šiais anonimizuotais event'ais
+  Lietuva beveik realiu laiku galėtų matyti turistų skaičių, atvykstančių
+  kilmės šalis, apytikslę lankymosi trukmę, telefono modelį.
+
+  Su tokia informacija galima būtų matuoti turizmo departamento veiklos našumą,
+  įvertintį didesnių renginių pritraukiamų turistų skaičių (sporto renginiai,
+  dainų šventė, koncertai, konferencijos and etc)
+data-needed:
+---
+title: Pasaulio valstybių pavadinimai lietuviškai ir ISO-3166
+comments: >
+  Lietuvių kalbos komisija pateikia pasaulio vietovardžių rašybą lietuviškai
+  http://pasaulio-vardai.vlkk.lt/. Viešas ir atviras ISO-3166 surišimas su
+  šiais pavadinimais leistų visose informacinėse sistemose naudoti teisingą
+  valstybių pavadinimų kodavimą ir atvaizdavimą tose IS-ose.
+data-needed:
+---
+title: Studijų programų duomenų bazė
+comments: >
+  Renkantis studijas pravartu žinoti kuo daugiau informacijos apie studijų
+  programą, jos turinį, dėstyomus dalykus, istoriją, kokybę patvirtinančius
+  dokumentus.
+
+  Atvėrus šiuos duomenis programinės įrangos kūrėjai galėtų studijas
+  besirenkantiems Lietuvos ir užsienio piliečiams pateikti informaciją jiems
+  patogiu būdu. Taip pat, ši informaciją galėtų tapti mokslinių tyrimų objektu.
+
+  Šiuo metu minėta informacija nėra pilnai prienama, išbarstyta po ŠMM, MOSTA
+  ir pavienių aukštojo mokslo įstaigų svetaines.
+data-needed:
+---
+title: Informacijos apie mokslinius tyrimus atvėrimas (LMT)
+comments: >
+  LMT, kaip investicijas į mokslą kuruojanti institucija atverti informaciją
+  apie skelbiamas programas, kvietimus, stažuotės galimybes, doktorantūros
+  laipsnio gynimus.
+
+  Ši informacija programinės įrangos kūrėjų rankose galėtų padėti sukurti
+  tikslingesnio informavimo paslaugas, kuriomis pasinaudodami mokslininkai bei
+  kiti RnD sektoriais veikėjai galėtų greičiau ir tiksliau reaguoti į
+  pasitaikančias galimybes. Taipogi, minėtas informacijos priėjimas leistų
+  daryti mokslinius tyrimus apie Lietuvos mokslo sektoriaus raidą.
+data-needed:
+---
+title: Atviras biudžetas
+comments: >
+  Patvirtinto biudžeto (plano) duomenys ir uždarytų metų, (biudžeto vykdymo)
+  duomenys.
+data-needed:
+---
+title: Atviri Lietuvos Respublikos nusikalstamumo duomenys 
+comments: >
+  Su Lietuvos Respublikos nusikalstamumo duomenimis būtų galima bandyti taikyti
+  įvairius matematinius modelius, kurie leistų modeliuoti nusikalstamumą
+  šalyje, t.y bandyti įžvelgti tendencijas, galimus ateities nusikaltimus bei
+  taip užkirsti kelią nusikaltimams. Tai jau sėkmingai veikia JAV.
+data-needed:
+---
+title: Lietuvos Respublikos visos pajamos ir išlaidos vienoje vietoje
+comments: >
+  Tam, kad investuotojai matytų realią reikalų padėtį Lietuvoje jiems yra
+  būtina parodyti visas Lietuvos pajamas ir išlaidas už mažiausiai 10 metų
+  vienoje vietoje. Piliečiams tai leistų pamatyti, palyginti politinių
+  sprendimų pasekmes kiekvienais metais. Planas ir faktas. Neklausiama patogu
+  tai ar nepatogu. Dabar tas jau nebeįdomu. Operacijų tipai ir operacijų sumos
+  turi būti suvienodinti ir apimti visą Lietuvos Respublikos federalinį,
+  institucijų, savivaldos ir susijusius biudžetus, išorinę paramą už mažiausiai
+  10 metų. Visus viešus ir ne viešus finansus. Kairėje pajamos, dešinėje -
+  išlaidos. 1 didelė Sankey tipo diagrama.  Žinoma, tai kas slapta ir turi
+  likti slapta. Bet neturėjimas tokios ilgalaikės struktūrizuotos informacijos
+  labai kenkia Lietuvos įvaizdžiui. Turima omenyje šalis nėra patraukli
+  investuotojui tol, kol Ji eile metų nedirba ta pačia tvarka ir režimu, o jei
+  dirba - nesugeba informacijos struktūrizuoti vadovaujantis vieninga operacijų
+  grupavimo tvarka. Tai parodo, kad nėra tęstinumo. Niekas nenori investuoti
+  savo pinigų į pastovių reformų "purtomas" šalis. Niekas nenori gyventi
+  pereinamaisiais laikotarpiais. Tokie paprasti ir baziniai duomenys - tai
+  reputacijos, savigarbos bei drąsos reikalas. Net ir viską gerai darant bet
+  neturint duomenų pateikimo visuomenei ir investuotojams ilgalaikės tvarkos -
+  investuotojai samdo brangiai apmokamus auditorius kurie iš piršto laužia
+  patogias ir nepatogias Lietuvai išvadas investuotojams parengtas
+  vadovaujantis viešai prieinama fragmentuota informacija. Gerai, kai išvados
+  pozityvios. Blogai kai išvados - negatyvios...
+data-needed:
+---
+title: Lietuvos Linked Opend Data (LTLOD)
+data-needed: {}
