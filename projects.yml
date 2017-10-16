@@ -6,11 +6,17 @@ comments: >
   skelbia skirtingais formatais arba iš vis neskelbia. Tas pats su
   sertifikatais.
 data-needed:
-  MaitinimoIstaiga:
-    - imone.pavadinimas
-    - licencija.prekyba_alkoholiu
-    - koordinates
-    - adresas
+  MaitinimoĮstaiga:
+    - savininkas
+    - prekybos_alkoholiu_licencija:pradžia
+    - prekybos_alkoholiu_licencija:pabaiga
+    - koordinatės
+    - adresas.koordinatės
+    - adresas.apskritis
+    - adresas.rajonas
+    - adresas.savivaldybė
+    - adresas.gatvė
+    - adresas.pastato_numeris
 ---
 title: Statistikos departamento duomenys
 comments: >
@@ -20,12 +26,12 @@ comments: >
   labiau pritaikyti on spot pažiūrėjimui.
 data-needed:
   StatistinisRodiklis:
-    - pradzia
+    - pradžia
     - pabaiga
     - dimensija
     - atributas
-    - reiksme
-    - matavimo_vienetas
+    - reikšmė
+    - matavimo vienetas
 ---
 title: Bankrotų statistika
 comments: >
@@ -47,7 +53,7 @@ comments: >
   registrų centro.  Dabartinis projektas veikia nusiurbiant duomenis iš
   registrų centro (web-scraping).
 data-needed:
-  ValstybineIstaiga:
+  ValstybinėIstaiga:
     - pavadinimas
     - logotipas
     - registracijos_numeris
