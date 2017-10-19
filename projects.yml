@@ -6,17 +6,52 @@ comments: >
   skelbia skirtingais formatais arba iš vis neskelbia. Tas pats su
   sertifikatais.
 data-needed:
+  PrekybosAlkoholiuLicencija:
+    - raktas
+    - maitinimo_įstaiga
+    - pradžia
+    - pabaiga
   MaitinimoĮstaiga:
+    - raktas
+    - pavadinimas
     - savininkas
-    - prekybos_alkoholiu_licencija:pradžia
-    - prekybos_alkoholiu_licencija:pabaiga
+    - adresas
+  MaitinimoĮstaigosSavininkas:
+    - pavadinimas
+    - veiklos_sritis
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+  MaitinimoĮstaigosAdresas:
+    - raktas
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
     - koordinatės
-    - adresas.koordinatės
-    - adresas.apskritis
-    - adresas.rajonas
-    - adresas.savivaldybė
-    - adresas.gatvė
-    - adresas.pastato_numeris
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Miestas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
 ---
 title: Statistikos departamento duomenys
 comments: >
@@ -26,6 +61,7 @@ comments: >
   labiau pritaikyti on spot pažiūrėjimui.
 data-needed:
   StatistinisRodiklis:
+    - raktas
     - pradžia
     - pabaiga
     - dimensija
@@ -42,10 +78,64 @@ comments: >
   http://www.avnt.lt/veiklos-sritys/nemokumas-2/nemokumo-duomenys-ir-analiz/
 data-needed:
   Bankrotas:
-    - imone
-    - laikas
-    - isieskomos_skolos_dalis
-    - bankroto_proceso_iniciatorius
+    - raktas
+    - įmonė
+    - pradžia
+    - pabaiga
+    - iniciatorius
+    - išieškomos_skolos_dalis
+    - nutarties_priėmimo_data
+    - supaprastinta_tvarka
+    - teismo_tvarka
+  BankrutuojantiĮmonė:
+    - raktas
+    - pavadinimas
+    - adresas
+    - teisine_forma
+    - veiklos_sritis
+    - darbuotoju_skaicius
+    - vidutinis_atlyginimas
+    - apyvarda
+    - įregistravimo_data
+    - išregistravimo_data
+    - logotipas
+  BankrutuojančiosĮmonėsAdresas:
+    - raktas
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+    - koordinatės
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Miestas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
+  TeisinėForma:
+    - raktas
+    - pavadinimas
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+    - tėvinė_šaka
 ---
 title: parašykjiems.lt
 comments: >
@@ -53,58 +143,167 @@ comments: >
   registrų centro.  Dabartinis projektas veikia nusiurbiant duomenis iš
   registrų centro (web-scraping).
 data-needed:
-  ValstybinėIstaiga:
+  ValstybėsTarnautojoPareigos:
+    - raktas
+    - asmuo
+    - įstaiga
+    - pareigos
+    - el_paštas
+    - tel_nr
+    - pradžia
+    - pabaiga
+    - pakeičia
+    - pakeistas
+  ValstybėsTarnautojas:
+    - raktas
+    - vardas
+    - pavardė
+    - nuotrauka
+  ValstybėsTarnautojoVardasPavardė:
+    - raktas
+    - asmuo
+    - vardas
+    - pavardė
+    - pabaiga
+  ValstybinėĮstaiga:
+    - raktas
     - pavadinimas
     - logotipas
     - registracijos_numeris
-    - registracijos_adresas
-    - priklauso_istaigai
-    - pastatas.koordinates
-    - pastatas.adresas
+    - adresas
+    - priklauso_įstaigai
     - veiklos_sritis
-    - el_pastas
+    - el_paštas
     - tel_nr
     - tinklapis
-    - iregistravimo_data
-    - isregistravimo_data
-  ValstybesTarnautojas:
-    - vardas
-    - pavarde
-    - nuotrauka
+    - įregistravimo_data
+    - išregistravimo_data
+  ValstybinėsĮstaigosAdresas:
+    - raktas
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+    - koordinatės
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Miestas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+    - tėvinė_šaka
+  ValstybinėsĮstaigosPareigybės:
+    - raktas
     - pareigos
-    - darboviete
-    - darbo_el_pastas
-    - darbo_tel_nr
-    - darbo_vietos_adresas
-    - darbo_vietos_koordinates
+    - aprašytas
+    - pradžia
+    - pabaiga
 ---
 title: Seimo narių balsavimai
 coments: >
   Seimo narių balsavimų statistinė analizė: balsavimo ideologiniai ir kitokie
   dėsningumai.
 data-needed:
-  SeimoNarys:
-    - vardas
-    - pavarde
-    - nuotrauka
-    - pareigos
-  Frakcija:
-    - pavadinimas
-    - sutrumpinimas
-    - partija.pavadinimas
-    - naryste
   Balsas:
-    - balso_reiksme
+    - raktas
+    - reikšmė
+    - formuluotė
     - laikas
     - seimo_narys
     - frakcija
-    - balsavimas
-    - uzsiregistravo
+    - balsavimas *
+    - užsiregistravo
     - klausimas
-    - teises_aktas
+  BalsavimoFormuluotė:
+    - raktas
+    - pavadinimas
+    - grupė
+  BalsavimoFormuluočiųGrupė:
+    - raktas
+  SeimoNarys:
+    - raktas
+    - vardas
+    - pavardė
+    - gimimo_data
+    - mirties_data
+    - nuotrauka
+    - frakcija
+    - partija
+    - kadencija
+  Frakcija:
+    - raktas
+    - pavadinimas
+    - trumpinys
+    - partija
+  FrakcijosNarys:
+    - raktas
+    - pradžia
+    - pabaiga
+    - frakcija
+    - seimo_narys
+  Partija:
+    - raktas
+    - pavadinimas
+    - politinė_kryptis
+  SeimoNarioPartija:
+    - raktas
+    - pradžia
+    - pabaiga
+    - frakcija
+    - seimo_narys
+  SeimoNarioMandatas:
+    - raktas
+    - seimo_narys
+    - kadencija
+    - pradžia
+    - pabaiga
+  SeimoKadencija:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
   SeimoBalsavimas:
+    - raktas
+    - laikas
+    - klausimas *
+    - teisės_aktas
+    - teisės_akto_elementas
   SeimeSvarstytasKlausimas:
-    - etapas
+    - raktas
+    - pavadinimas
+    - pranešėjas *
+    - teisės_aktas
+  SeimeSvartytoKlausimoPranešėjas:
+    - raktas
+    - vardas
+    - pavardė
+    - nuotrauka
+    - partija
+    - pareigos
+  ValstybėsTarnautojoUžimamosPareigos:
+    - tarnautojas
+    - įstaiga
+
 ---
 title: manoseimas.lt
 coments: >
@@ -426,3 +625,126 @@ data-needed:
 ---
 title: Lietuvos Linked Opend Data (LTLOD)
 data-needed: {}
+---
+title: Viešūjų pirkimų stebėsenos sistema
+comments: >
+  Viešuosiuose pirkimuose pasitaiko atveju, kai prekės ar paslaugos įsigyjamos
+  už kelis kartus didesnę kainą, nei rinkos vertė.
+
+  Būtų galimapa sukurti tokią sistemą, kuri padėtų stebėti viešuosius pirkimus,
+  lyginant viešąjame pirkime įsigytų prekių ar paslaugų kainas su rinkos verte.
+
+  Kad tai būtų įmanoma, reikalingi viešūjų pirkimų ir rinkos kainų duomenys.
+  Papildomai, viešuosiuose pirkimuose, tiekėjai turėtų teikti detalias
+  ataskaitas apie taip, kaip buvo panaudoti viešojo pirkimo pinigai.
+data-needed:
+  ViešojoPirkimoLėšųPanaudojimas:
+    - raktas
+    - pirkimas
+    - tiekėjas
+    - objektas
+    - kiekis
+    - suma
+  ViešasisPirkimas:
+    - raktas
+    - projektas
+    - pirkėjas
+    - tiekėjas
+    - etapas
+    - suma
+    - žymė
+  ValstybinisProjektas:
+    - raktas
+    - pavadinimas
+    - sritis
+    - vykdytojas
+    - biudžetas
+    - parama
+    - prašomos_paramos_suma
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+  ValstybinėĮstaiga:
+    - raktas
+    - pavadinimas
+    - logotipas
+    - registracijos_numeris
+    - adresas
+    - priklauso_įstaigai
+    - veiklos_sritis
+    - įregistravimo_data
+    - išregistravimo_data
+  ValstybinėsĮstaigosAdresas:
+    - raktas
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+    - koordinatės
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Miestas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
+  PrekiųPaslaugųKategorija:
+    - raktas
+    - pavadinimas
+  ValstybinioProjektoParama:
+    - raktas
+    - pavadinimas
+    - projektas
+    - teikėjas
+  ValstybinioProjektoParamosTeikėjas:
+    - raktas
+    - pavadinimas
+    - logotipas
+  ViešojoPirkimoDalyvis:
+    - raktas
+    - registracijos_numeris
+    - adresas
+    - teisinė_forma
+    - veiklos_sritis
+    - darbuotoju_skaicius
+    - vidutinis_atlyginimas
+    - skola_sodrai
+    - apyvarda
+    - įregistravimo_data
+    - išregistravimo_data
+    - logotipas
+  DalyvavimasViešajamePirkime:
+    - raktas
+    - pradžia
+    - pabaiga
+    - dalyvis
+    - pirkimas
+    - laimėtojas
+  TeisinėForma:
+    - raktas
+    - pavadinimas
+  PrekėPaslauga:
+    - raktas
+    - pavadinimas
+    - kategorija
+    - vidutinė_rinkos_vertė
+  PrekiųPaslaugųKategorija:
+    - raktas
+    - pavadinimas
+    - kamienas

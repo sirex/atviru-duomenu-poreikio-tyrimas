@@ -25,7 +25,7 @@ class Kvalifikatorius:
 class Objektas:
     meta = Meta()
 
-    unikalus_identifikatorius = P(str)
+    raktas = P(str, comment="Vidinis identifikatorius (raktas)")
     pavadinimas = P(str)
 
     def __init__(self, **kw):
@@ -85,12 +85,62 @@ class Koordinates(Objektas):
     platuma = P(str)
 
 
-class Adresas(Objektas):
+class ErdvinisObjektas(Objektas):
+    pass
+
+
+class Taškas(ErdvinisObjektas):
+    koordinates = P(Koordinates)
+
+
+class Linija(ErdvinisObjektas):
+    linija = P(list)
+
+
+class Kontūras(ErdvinisObjektas):
+    kontūras = P(list)
+
+
+class Teritorija(Kontūras):
+    gyventojų_skaičius = P(int)
+
+
+class Apskritis(Teritorija):
+    pass
+
+
+class Rajonas(Teritorija):
+    pass
+
+
+class Savivaldybė(Teritorija):
+    pass
+
+
+class Seniūnija(Teritorija):
+    pass
+
+
+class Gyvenvietė(Teritorija, Taškas):
+    rūšis = P(str, choices=(
+        'miestas',
+        'kaimas',
+        'vienkiemis',
+    ))
+
+
+class Gatvė(Linija):
+    pass
+
+
+class Adresas(ErdvinisObjektas):
     koordinatės = P(Koordinates)
-    apskritis = P(Objektas)
-    rajonas = P(Objektas)
-    savivaldybė = P(Objektas)
-    gatve = P(Objektas)
+    apskritis = P(Apskritis)
+    rajonas = P(Rajonas)
+    savivaldybė = P(Savivaldybė)
+    seniūnija = P(Seniūnija)
+    gyvenvietė = P(Gyvenvietė)
+    gatve = P(Gatvė)
     pastato_numeris = P(int)
 
 
@@ -106,13 +156,21 @@ class Pastatas(Objektas):
     darbo_laikas = P(DarboLaikas)
 
 
+class Laikotarpis(Objektas):
+    pradžia = P(DataLaikas)
+    pabaiga = P(DataLaikas)
+
+
+class Įvykis(Laikotarpis):
+    adresas = P(Adresas)
+
+
 class Agentas(Objektas):
     pass
 
 
 class Asmuo(Agentas):
     meta = Meta(wikidata='Q5')
-
     lytis = P(str, wikidata='P21', choices=("vyras", "moteris"))
     vardas = P(Objektas, Laikotarpis)
     pavarde = P(Objektas, Laikotarpis)
@@ -129,51 +187,106 @@ class Asmuo(Agentas):
     tautybė = P(Objektas)
     pilietybe = P(Objektas, Laikotarpis, wikidata='P27')
     gimtoji_kalba = P(Objektas)
-    teistumas = P(bool)
-    pareigos = P('Pareigos', Laikotarpis, wikidata='P39')
     sutuoktinis = P('Asmuo', Laikotarpis)
     vaikas = P('Asmuo')
 
 
-class Licencija(Objektas):
-    prekyba_alkoholiu = P(bool)
-
-
-class JuridinisAsmuo(Agentas):
-    registracijos_numeris = P(str)
-    registracijos_adresas = P(Adresas, Laikotarpis)
-    teisine_forma = P(str)
-    pastatas = P(Pastatas, Laikotarpis)
-    veiklos_sritis = P(str)
-    el_pastas = P(str, Laikotarpis)
-    tel_nr = P(str, Laikotarpis)
-    tinklapis = P(str, Laikotarpis)
-    darbuotoju_skaicius = P(int, Laikotarpis)
-    vidutinis_atlyginimas = P(PinigųKiekis, Laikotarpis)
-    skola_sodrai = P(PinigųKiekis, Laikotarpis)
-    apyvarda = P(PinigųKiekis, Laikotarpis)
-    iregistravimo_data = P(DataLaikas)
-    isregistravimo_data = P(DataLaikas)
-    logotipas = P(Paveiksliukas, Laikotarpis)
-    akcininkas = P(Agentas)
-    direktorius = P(Asmuo)
-    licencija = P(Licencija)
-
-
-class Įmonė(JuridinisAsmuo):
+class Pareigos(Objektas):
     pass
 
 
+class Narystė(Laikotarpis):
+    narys = P(Agentas)
+    grupė = P(Agentas)
+    pareigos = P(Pareigos, 'UžimamosPareigos', m2mbref='grupė')
+
+
+class Grupė(Agentas):
+    vadovas = P(Asmuo)
+    logotipas = P(str)
+    įkurta = P(DataLaikas)
+    likviduota = P(DataLaikas)
+    narys = P(Agentas, Narystė, m2mbref='grupė')
+
+
+class UžimamosPareigos(Laikotarpis):
+    asmuo = P(Asmuo)
+    grupė = P(Grupė)
+    pareigos = P(Pareigos)
+    pakeičia = P(Asmuo, wikidata='P1365', comment="Pakeičia ansčiau pareigas ėjusį asmenį.")
+    pakeistas = P(Asmuo, wikidata='P1366', comment="Buvo pakeistas vėliau šias pareigas užėmusio asmens.")
+
+
+class MaitinimoĮstaigosAdresas(Adresas):
+    pass
+
+
+class MaitinimoĮstaiga(Objektas):
+    savininkas = P(Agentas)
+    adresas = P(MaitinimoĮstaigosAdresas)
+
+
+class PrekybosAlkoholiuLicencija(Laikotarpis):
+    maitinimo_įstaiga = P(MaitinimoĮstaiga)
+
+
+class KategorijųMedis(Objektas):
+    pass
+
+
+class KategorijųMedžioŠaka(Objektas):
+    medis = P(KategorijųMedis)
+    kamienas = P('self')
+
+
+class VeiklosSritis(KategorijųMedis):
+    pass
+
+
+class TeisinėForma(Laikotarpis):
+    pavadinimas = P(str, choices=(
+        "Valstybės ar savivaldybės įmonė",
+        "Tikroji ar komanditinė ūkinė bendrija",
+        "Uždaroji akcinė bendrovė",
+        "Akcinė bendrovė",
+        "Žemės ūkio bendrovė",
+        "Viešoji įstaiga",
+        "Asociacija",
+        "Kooperatinė bendrovė",
+        "Individuali įmonė",
+        "Mažoji bendrija",
+    ))
+
+
+class JuridinisAsmuo(Grupė):
+    registracijos_numeris = P(str)
+    adresas = P(Adresas, Laikotarpis)
+    teisinė_forma = P(TeisinėForma)
+    pastatas = P(Pastatas, Laikotarpis)
+    veiklos_sritis = P(VeiklosSritis)
+    el_paštas = P(str, Laikotarpis)
+    tel_nr = P(str, Laikotarpis)
+    tinklapis = P(str, Laikotarpis)
+    darbuotojų_skaičius = P(int, Laikotarpis, sameas='narių_skaičius')
+    vidutinis_atlyginimas = P(PinigųKiekis, Laikotarpis)
+    skola_sodrai = P(PinigųKiekis, Laikotarpis)
+    įregistravimo_data = P(DataLaikas, sameas='įkurta')
+    išregistravimo_data = P(DataLaikas, sameas='likviduota')
+    direktorius = P(Asmuo, sameas='vadovas')
+
+
+class Įmonė(JuridinisAsmuo):
+    apyvarda = P(PinigųKiekis, Laikotarpis)
+    akcininkas = P(Agentas)
+
+
 class Akcininkas(Agentas):
-    meta = Meta("Akcininkas")
+    įmonė = P(Įmonė)
+    akciju_dalis_įmonėje = P(Kiekis)
 
-    akciju_dalis = P("Akcijų dalis įmonėje")
 
-
-class ValstybineIstaiga(JuridinisAsmuo):
-    meta = Meta("Valstybinė įstaiga")
-
-    priklauso_istaigai = P("Valstybinė įstaiga, kuriai yra pavaldi")
+class ValstybinėĮstaiga(JuridinisAsmuo):
+    priklauso_įstaigai = P('self')
 
 
 class MaitinimoĮstaiga(Objektas):
@@ -190,9 +303,24 @@ class MokymoĮstaiga(Objektas):
 
 
 class Profesija(Objektas):
-    sritis = P(str)
+    sritis = P(VeiklosSritis)
     darbo_vietų_skaičius = P(int, Laikotarpis)
     laisvu_darbo_vietu_skaicius = P(int, Laikotarpis)
+
+
+class VardasPavardė(Laikotarpis):
+    asmuo = P(Asmuo)
+    vardas = P(str)
+    pavardė = P(str)
+
+
+class ValstybėsTarnautojoVardasPavardė(VardasPavardė):
+    pass
+
+
+class ValstybinėsĮstaigosPareigybės(Laikotarpis):
+    įstaiga = P(ValstybinėĮstaiga)
+    pareigos = P(Profesija)
 
 
 class StudijuPrograma(Objektas):
@@ -216,23 +344,19 @@ class Išsilavinimas(Laikotarpis):
     studiju_programa = P(StudijuPrograma)
 
 
-class Pareigos(Laikotarpis):
-    pakeicia = P(
-        "Pakeičia", 'Asmuo', wikidata='P1365',
-        comment="Pakeičia ansčiau pareigas ėjusį asmenį.",
-    )
-    pakeistas = P(
-        "Pakeistas", 'Asmuo', wikidata='P1366',
-        comment="Buvo pakeistas vėliau šias pareigas užėmusio asmens.",
-    )
-
-
 class Santuoka(Laikotarpis):
     sutuoktinis = P("Sutuoktinis", Asmuo)
 
 
 class ValstybėsTarnautojas(Asmuo):
-    pass
+    pareigos = P(Pareigos, 'ValstybėsTarnautojoUžimamosPareigos', m2mbref='tarnautojas')
+
+
+class ValstybėsTarnautojoUžimamosPareigos(UžimamosPareigos):
+    tarnautojas = P(ValstybėsTarnautojas, sameas='asmuo')
+    įstaiga = P(ValstybinėĮstaiga, sameas='grupė')
+    el_paštas = P(str)
+    tel_nr = P(str)
 
 
 class SandorioŠalis(Kvalifikatorius):
@@ -250,138 +374,181 @@ class ValstybesTarnautojoSandoris(Sandoris):
     šalis = P(ValstybėsTarnautojas, SandorioŠalis)
 
 
-class Laikotarpis(Objektas):
-    pradzia = P("Pradžia", DataLaikas)
-    pabaiga = P("Pabaiga", DataLaikas)
+class Darbuotojas(Narystė):
+    darbuotojas = P(Asmuo, sameas='narys')
+    darbovietė = P(Įmonė, sameas='grupė')
+    profesija = P(Profesija)
+    el_paštas = P(str)
+    tel_nr = P(str)
+    adresas = P(Adresas)
+    pajamos = P(PinigųKiekis)
 
 
-class Naryste(Laikotarpis):
-    narys = P("Narys", Agentas)
-    grupe = P("Grupė", Agentas)
-    pareigos = P("Pareigos")
+class PolicijojeRegistruotasIvykis(Įvykis):
+    rūšis = P(str)
 
 
-class Darbuotojas(Naryste):
-    meta = Meta("Darbuotojas")
-
-    narys = P("Asmuo", Asmuo)
-    pareigos = P("Pareigos")
-    profesija = P("Profesija", Profesija)
-    darboviete = P("Darbovietė", Įmonė)
-    darbo_el_pastas = P("El. paštas")
-    darbo_tel_nr = P("Tel. nr.")
-    darbo_vietos_adresas = P("Adresas", Adresas)
-    darbo_vietos_koordinates = P("Koordinatės", Koordinates)
-    pajamos = P("Pajamos")
+class PartijosVadovas(Asmuo):
+    pass
 
 
-class Ivykis(Laikotarpis):
-    koordinates = P("Koordinatės", Koordinates)
-    adresas = P("Adresas", Adresas)
+class Rinkimai(Įvykis):
+    rūšis = P(str, choices=("prezidento", "seimo", "savivaldybių"))
 
 
-class PolicijojeRegistruotasIvykis(Ivykis):
-    rusis = P("Įvykio rūšis")
+class Partija(Grupė):
+    trumpinys = P(str)
+    rinkimai = P(Rinkimai)
+    vadovas = P(PartijosVadovas)
+    politinė_kryptis = P('str', ("kairė", "centro", "dešinė"))
+
+
+class RinkimųEtapas(Įvykis):
+    rinkimai = P(Rinkimai)
+
+
+class RinkimųApygarda(Kontūras):
+    pass
+
+
+class RinkimųApylinkė(Kontūras):
+    apygarda = P(RinkimųApygarda)
+    pastatas = P(Pastatas)
+
+
+class RinkimųKandidatas(Asmuo):
+    partija = P(Partija)
+    sandoris = P(Laikotarpis)
+    rinkimai = P(Rinkimai)
+    eilė_sąraše = P(int)
+    sąrašas = P(str)
+
+
+class Frakcija(Grupė):
+    trumpinys = P(str)
+    partija = P(Partija)
+
+
+class SeimoKadencija(Laikotarpis):
+    pass
 
 
 class SeimoNarys(ValstybėsTarnautojas):
-    meta = Meta("Seimo narys")
+    frakcija = P(Frakcija, 'FrakcijosNarys', m2mbref='narys')
+    partija = P(Partija, 'SeimoNarioPartija', m2mbref='narys')
+    mandatas = P(SeimoKadencija, 'SeimoNarioMandatas', m2mbref='seimo_narys')
 
 
-class Grupe(Agentas):
-    pavadinimas = P("Pavadinimas")
-    ikurimo_data = P("Įkurimo data")
-    likvidavimo_data = P("Likvidavimo data")
-    logotipas = P("Logotipas")
-    naryste = P("Grupės narys", Agentas)
+class SeimoNarioMandatas(Laikotarpis):
+    seimo_narys = P(SeimoNarys)
+    kadencija = P(SeimoKadencija)
 
 
-class Partija(Grupe):
-    pavadinimas = P("Pavadinimas")
-    rinkimai = P("Rinkimai")
-    vadovas = P("Vadovas", Asmuo)
+class FrakcijosNarys(Narystė):
+    frakcija = P(Frakcija, sameas='grupė')
+    seimo_narys = P(SeimoNarys, sameas='narys')
 
 
-class Frakcija(Grupe):
-    naryste = P("Frakcijos nariai", Naryste(grupe='self', narys=SeimoNarys))
-    sutrumpinimas = P("Trumpas pavadinimas")
-    partija = P("Partija", Partija)
+class SeimoNarioPartija(Narystė):
+    seimo_narys = P(SeimoNarys, sameas='narys')
+    partija = P(Partija, sameas='grupė')
 
 
 class Dokumentas(Objektas):
-    pavadinimas = P("Pavadinimas")
     dokumento_tekstas = P("Dokumento tekstas")
 
 
-class TeisesAktas(Dokumentas):
-    numeris = P("Numeris")
-    paskelbimo_data = P("Paskelbimo data")
-    įsigaliojimo_data = P("Įsigaliojimo data")
-    eurovoc_terminas = P("Eurovoc terminas")
+class DokumentoElementas(Objektas):
+    dokumentas = P(Dokumentas)
+    kamienas = P('self', comments="Kamieninis (tėvinis) dokumento elementas.")
+    ankstesnis = P('self', comments="Prieš šį elementą einantis elementas.")
+    sekantis = P('self', comments="Po šio elemento einantis elementas.")
+    pakeičia = P('self', comments="Šis elementas pakeičia seną elementą.")
+    pakeistas = P('self', comments="Šis elemntas yra pakeistas nauju elementu.")
+    tipas = P(str, comments="Dokumento paragrafo tipas.", choices=(
+        'text',
+        'p', 'quote',
+        'ol', 'ul', 'li',
+        'table', 'tr', 'th', 'td',
+        'h1', 'h2', 'h3', 'h4', 'h5',
+        'removed',
+    ))
 
 
-class SvarstytoKlausimoFormuluote(Objektas):
-    formuluote = P("Svarstyto klausimo formuluote")
+class EurovocTerminas(KategorijųMedžioŠaka):
+    pass
+
+
+class TeisėsAktas(Dokumentas):
+    rūšis = P(str)
+    numeris = P(str)
+    paskelbimo_data = P(Data)
+    įsigaliojimo_data = P(Data)
+    eurovoc_terminas = P(str)
+
+
+class TeisėsAktoElementas(DokumentoElementas):
+    teisės_aktas = P(TeisėsAktas, sameas='dokumentas')
+    tipas = P(str, choices=DokumentoElementas.tipas.choices + ('straipsnis'))
+
+
+class SeimeSvarstytasTeisėsAktas(Objektas):
+    klausimas = P('SeimeSvarstytasKlausimas')
+    teisės_aktas = P(TeisėsAktas)
+    teisės_akto_elementas = P(TeisėsAktoElementas)
+    etapas = P("Klausimo svarstymo etapas", choices=("pateikimas", "svarstymas", "priėmimas"))
 
 
 class SeimeSvarstytasKlausimas(Objektas):
-    formuluote = P("Klausimo formuluotė", SvarstytoKlausimoFormuluote)
-    etapas = P("Klausimo svarstymo etapas", choices=(
-        "pateikimas",
-        "svarstymas",
-        "priemimas",
-    ))
+    pranešėjas = P('SeimeSvartytoKlausimoPranešėjas', backref='klausimas')
+    teisės_aktas = P(TeisėsAktas, SeimeSvarstytasTeisėsAktas, m2mbref='klausimas')
+
+
+class SeimeSvartytoKlausimoPranešėjas(Asmuo):
+    klausimas = P(SeimeSvarstytasKlausimas)
 
 
 class SeimoBalsavimas(Objektas):
-    laikas = P("Laikas", DataLaikas)
-    klausimas = P("Klausimas dėl kurio buvo balsuota", SeimeSvarstytasKlausimas)
+    laikas = P(DataLaikas)
+    klausimas = P(SeimeSvarstytasKlausimas, comments="Klausimas dėl kurio buvo balsuota.")
+    teisės_aktas = P(TeisėsAktas)
+    teisės_akto_elementas = P(TeisėsAktoElementas)
+
+
+class BalsavimoFormuluočiųGrupė(Objektas):
+    pass
+
+
+class BalsavimoFormuluotė(Objektas):
+    grupė = P(BalsavimoFormuluočiųGrupė)
 
 
 class Balsas(Objektas):
-    balsas = P("Balso reikšmė", str, choices=(
-        "už",
-        "susilaikė",
-        "prieš",
-    ))
-    formuluote = P("Balsuota už svarstyto klausimo formuluote", SvarstytoKlausimoFormuluote)
-    laikas = P("Laikas", DataLaikas)
-    seimo_narys = P("Seimo narys", SeimoNarys)
-    frakcija = P("Frakcija", Frakcija)
-    balsavimas = P("Balsavimas", SeimoBalsavimas)
-    uzsiregistravo = P("Užsiregistravo", bool)
-    klausimas = P("Klausimas")
-    teises_aktas = P("Teisės aktas", TeisesAktas)
-    pranešėjas = P(Asmuo)
+    reikšmė = P(str, choices=("už", "susilaikė", "prieš"))
+    formuluotė = P(BalsavimoFormuluotė, comment="Formuluotė už kurią buvo balsuojama.")
+    laikas = P(DataLaikas)
+    seimo_narys = P(SeimoNarys)
+    frakcija = P(Frakcija)
+    balsavimas = P(SeimoBalsavimas)
+    užsiregistravo = P(bool)
+    klausimas = P(SeimeSvarstytasKlausimas)
 
 
 class Pasisakymas(Objektas):
-    laikas = P("Pasisakymo data")
-    tekstas = P("Pasisakymo tekstas")
-    pasisakiusysis = P("Pasisakiusysis", Asmuo)
+    laikas = P(DataLaikas)
+    asmuo = P(Asmuo)
+
+
+class AsmuoPasisakęsSeimoPosėdžioMetu(Asmuo):
+    pass
 
 
 class PasisakymasStenogramoje(Pasisakymas):
-    stenograma = P("Stenograma")
-    valstybės_tarnautojas = P("Valstybės tarnautojas")
-    posėdžio_pirmininkas = P("Posėdžio pirmininkas")
-    teisės_aktas = P("Teisės aktas")
-    balsavimas = P("Balsavimas")
-    teisės_akto_punktas = P("Teisės akto puntas")
-
-
-class TeisesAktoPunktas(Objektas):
-    teises_aktas = P("Teisės aktas")
-    tekstas = P("Teisės akto punkto tekstas")
-    straipsnis = P("Teisės akto straipsnis")
-    skyrius = P("Teisės akto skyrius")
-    tipas = P("Teisės akto punkto tipas")
-
-
-class TeisesAktoPakeitimas(Objektas):
-    keiciamas_punktas = P("Keičiamas punktas")
-    naujas_punktas = P("Naujas punktas")
-    projektas = P("Teisės akto projektas")
+    asmuo = P(AsmuoPasisakęsSeimoPosėdžioMetu)
+    pirmininkas = P(bool)
+    klausimas = P(SeimeSvarstytasKlausimas, comments="Klausimas apie kurį buvo kalbėta.")
+    teisės_aktas = P(TeisėsAktas)
+    teisės_akto_elementas = P(TeisėsAktoElementas)
 
 
 class StatistinisRodiklis(Laikotarpis):
@@ -394,56 +561,98 @@ class StatistinisRodiklis(Laikotarpis):
     matavimo_vienetas = P("Matavimo vienetas")
 
 
-class Bankrotas(Ivykis):
-    meta = Meta("Bankrotas")
-
-    imone = P(Įmonė)
-    laikas = P("Data")
-    isieskomos_skolos_dalis = P("Išieškomos skolos dalis")
-    bankroto_proceso_iniciatorius = P("Bankroto proceso iniciatorius")
-
-
-class Projektas(Ivykis):
-    meta = Meta("Projektas")
-
-    pavadinimas = P("Projekto pavadinimas")
-    prasomos_paramos_suma = P("Prašomos paramos suma")
-    skirtos_paramos_suma = P("Skirtos paramos suma")
-    paramos_teikejas = P("Paramos teikėjas", Agentas)
-    vykdytojas = P("Vykdytojas", Agentas)
-    sritis = P("Sritis")
+class Bankrotas(Įvykis):
+    įmonė = P(Įmonė)
+    iniciatorius = P(str, choices=(
+        "darbuotojai",
+        "kreditoriai",
+        "likvidatorius",
+        "vadovas",
+        "savininkai",
+        "vmi",    # Valstybinė mokesčių inspekcija
+        "vsdfv",  # Valstybinio socialinio draudimo fondo valdyba
+    ))
+    išieškomos_skolos_dalis = P(PinigųKiekis)
+    nutarties_priėmimo_data = P(Data)
+    supaprastinta_tvarka = P(bool)
+    teismo_tvarka = P(bool)
 
 
-class ViesasisPirkimas(Objektas):
-    meta = Meta("Viešasis pirkimas")
+class PrekiųPaslaugųKategorija(KategorijųMedžioŠaka):
+    pass
 
+
+class PrekėPaslauga(Objektas):
+    kategorija = P(PrekiųPaslaugųKategorija)
+    vidutinė_rinkos_vertė = P(PinigųKiekis, comment="Prekės ar paslaugos vieneto vidutinė rinkos vertė.")
+
+
+class Projektas(Įvykis):
+    sritis = P(VeiklosSritis)
+    vykdytojas = P(Agentas)
+    biudžetas = P(PinigųKiekis)
+    parama = P('Parama', backref='projektas')
+    prašomos_paramos_suma = P(PinigųKiekis)
+
+
+class Parama(Objektas):
+    projektas = P(Projektas)
+    teikėjas = P(Agentas)
+    suma = P(PinigųKiekis)
+
+
+class ValstybinioProjektoParamosTeikėjas(Agentas):
+    pass
+
+
+class ValstybinisProjektas(Projektas):
+    vykdytojas = P(ValstybinėĮstaiga)
+    parama = P('ValstybinioProjektoParama', backref='projektas')
+
+
+class ValstybinioProjektoParama(Parama):
+    projektas = P(ValstybinisProjektas)
+    teikėjas = P(ValstybinioProjektoParamosTeikėjas)
+
+
+class ViešojoPirkimoDalyvis(Agentas):
+    pass
+
+
+class ViešasisPirkimas(Laikotarpis):
     # http://standard.open-contracting.org/
-    ocid = P("Globalus identifikatorius")
-    id = P("Vidinis identifikatorius")
-    laikas = P("Pirkimo paskelbimo data")
-    zyme = P("Žymė")
-    dalyvis = P(Įmonė)
-    uzsakovas = P(Įmonė)
-    projektas = P("Projektas", Projektas)
+    projektas = P(Projektas, backref='vykdytojas')
+    pirkėjas = P(ValstybinėĮstaiga)
+    tiekėjas = P(ViešojoPirkimoDalyvis, 'DalyvavimasViešajamePirkime', m2mbref='pirkimas')
+    etapas = P(str, choices=("nuostatai", "specifikacija", "įgyvendinimas"))
+    suma = P(PinigųKiekis, comment="Viešojo pirkimo sandorio suma.")
+    žymė = P(str)
 
 
-class MetrikuKnyga(Objektas):
-    meta = Meta("Metriku knyga")
+class DalyvavimasViešajamePirkime(Laikotarpis):
+    dalyvis = P(ViešojoPirkimoDalyvis)
+    pirkimas = P(ViešasisPirkimas)
+    laimėtojas = P(bool, comment="Viešojo pirkimo konkurso laimėtojas.")
 
+
+class ViešojoPirkimoLėšųPanaudojimas(Objektas):
+    pirkimas = P(ViešasisPirkimas)
+    tiekėjas = P(Agentas)
+    objektas = P(PrekėPaslauga)
+    kiekis = P(Kiekis)
+    suma = P(PinigųKiekis, comment="Perkamo objekto vieneto kaina.")
+
+
+class MetrikųKnyga(Objektas):
     laikotarpis = P("Laikotarpis")
     pastatas = P("Pastatas")
     skaitmeninimo_data = P("Skaitmeninimo data")
 
 
 class MetrikuKnygosLapas(Objektas):
-    metrikų_knyga = P("Metrikų knyga", MetrikuKnyga)
+    metrikų_knyga = P("Metrikų knyga", MetrikųKnyga)
     lapo_numeris = P("Lapo numeris")
     lapo_paveiksliukas = P("Lapo paveiksliukas")
-
-
-class ErdvinisObjektas(Objektas):
-    koordinates = P("Koordinatės", Koordinates)
-    konturas = P("Geografinis kontūras su koordinatėmis")
 
 
 class VandensTelkinys(ErdvinisObjektas):
@@ -499,12 +708,12 @@ class Liga(Objektas):
     pavadinimas = P("Pavadinimas")
 
 
-class Susirgimas(Ivykis):
+class Susirgimas(Įvykis):
     liga = P("Liga")
     asmuo = P("Asmuo", Asmuo)
 
 
-class TelefonoRegistracijaPrieMobTinklo(Ivykis):
+class TelefonoRegistracijaPrieMobTinklo(Įvykis):
     """Visitor location register"""
     kilmes_salis = P("Kilmės šalis")
     tel_nr = P("Telefono modelis")
@@ -536,34 +745,6 @@ class ParkavimoAikstele(ErdvinisObjektas):
     kaina = P("Parkavimo kaina")
     darbo_laikas = P("Darbo laikas")
     laisvu_vietu_skaicius = P("Laisvų vietų skaičius")
-
-
-class Rinkimai(Ivykis):
-    pavadinimas = P("Pavadinimas")
-    rūšis = P("Rūšis", choices=("prezidento", "seimo", "savivaldybių"))
-
-
-class RinkimuEtapas(Ivykis):
-    pavadinimas = P("Pavadinimas")
-    rinkimai = P("Rinkimai", Rinkimai)
-
-
-class RinkimuApygarda(ErdvinisObjektas):
-    pavadinimas = P("Pavadinimas")
-
-
-class RinkimuApylinke(ErdvinisObjektas):
-    pavadinimas = P("Pavadinimas")
-    apygarda = P("Rinkimų apygarda", RinkimuApygarda)
-    pastatas = P("Pastatas")
-
-
-class RinkimuKandidatas(Asmuo):
-    partija = P("Partija", Naryste(narys='self', grupe=Partija))
-    sandoris = P("Sandoris", Laikotarpis)
-    rinkimai = P("Rinkimai")
-    eile_sarase = P("Eilė sąraše")
-    sarasas = P("Sąrašas")
 
 
 class Stotele(ErdvinisObjektas):
