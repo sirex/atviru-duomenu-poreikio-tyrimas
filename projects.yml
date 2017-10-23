@@ -40,10 +40,11 @@ data-needed:
     - raktas
     - pavadinimas
     - kontūras
-  Miestas:
+  Gyvenvietė:
     - raktas
     - pavadinimas
     - kontūras
+    - rūšis
   Savivaldybė:
     - raktas
     - pavadinimas
@@ -67,7 +68,7 @@ data-needed:
     - dimensija
     - atributas
     - reikšmė
-    - matavimo vienetas
+    - matavimo_vienetas
 ---
 title: Bankrotų statistika
 comments: >
@@ -91,9 +92,9 @@ data-needed:
     - raktas
     - pavadinimas
     - adresas
-    - teisine_forma
+    - teisinė_forma
     - veiklos_sritis
-    - darbuotoju_skaicius
+    - darbuotojų_skaičius
     - vidutinis_atlyginimas
     - apyvarda
     - įregistravimo_data
@@ -117,10 +118,11 @@ data-needed:
     - raktas
     - pavadinimas
     - kontūras
-  Miestas:
+  Gyvenvietė:
     - raktas
     - pavadinimas
     - kontūras
+    - rūšis
   Savivaldybė:
     - raktas
     - pavadinimas
@@ -135,7 +137,7 @@ data-needed:
   VeiklosSritis:
     - raktas
     - pavadinimas
-    - tėvinė_šaka
+    - kamienas
 ---
 title: parašykjiems.lt
 comments: >
@@ -143,9 +145,9 @@ comments: >
   registrų centro.  Dabartinis projektas veikia nusiurbiant duomenis iš
   registrų centro (web-scraping).
 data-needed:
-  ValstybėsTarnautojoPareigos:
+  ValstybėsTarnautojoUžimamosPareigos:
     - raktas
-    - asmuo
+    - tarnautojas
     - įstaiga
     - pareigos
     - el_paštas
@@ -196,10 +198,11 @@ data-needed:
     - raktas
     - pavadinimas
     - kontūras
-  Miestas:
+  Gyvenvietė:
     - raktas
     - pavadinimas
     - kontūras
+    - rūšis
   Savivaldybė:
     - raktas
     - pavadinimas
@@ -211,11 +214,10 @@ data-needed:
   VeiklosSritis:
     - raktas
     - pavadinimas
-    - tėvinė_šaka
-  ValstybinėsĮstaigosPareigybės:
+    - kamienas
+  ValstybėsTarnautojoUžimamosPareigos:
     - raktas
     - pareigos
-    - aprašytas
     - pradžia
     - pabaiga
 ---
@@ -231,7 +233,7 @@ data-needed:
     - laikas
     - seimo_narys
     - frakcija
-    - balsavimas *
+    - balsavimas
     - užsiregistravo
     - klausimas
   BalsavimoFormuluotė:
@@ -249,7 +251,7 @@ data-needed:
     - nuotrauka
     - frakcija
     - partija
-    - kadencija
+    - mandatas
   Frakcija:
     - raktas
     - pavadinimas
@@ -269,7 +271,7 @@ data-needed:
     - raktas
     - pradžia
     - pabaiga
-    - frakcija
+    - partija
     - seimo_narys
   SeimoNarioMandatas:
     - raktas
@@ -285,13 +287,13 @@ data-needed:
   SeimoBalsavimas:
     - raktas
     - laikas
-    - klausimas *
+    - klausimas
     - teisės_aktas
     - teisės_akto_elementas
   SeimeSvarstytasKlausimas:
     - raktas
     - pavadinimas
-    - pranešėjas *
+    - pranešėjas
     - teisės_aktas
   SeimeSvartytoKlausimoPranešėjas:
     - raktas
@@ -300,6 +302,9 @@ data-needed:
     - nuotrauka
     - partija
     - pareigos
+  SeimeSvartytoKlausimoPranešėjoPareigos:
+    - raktas
+    - pavadinimas
   ValstybėsTarnautojoUžimamosPareigos:
     - tarnautojas
     - įstaiga
@@ -430,10 +435,37 @@ data-needed:
 title: places.openmap.lt
 data-needed:
   Adresas:
-    - koordinates
+    - raktas
+    - pavadinimas
+    - koordinatės
     - apskritis
     - rajonas
-    - savivaldybe
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
 ---
 title: Metrikų skaitmenizavimas
 comments: >
@@ -692,10 +724,11 @@ data-needed:
     - raktas
     - pavadinimas
     - kontūras
-  Miestas:
+  Gyvenvietė:
     - raktas
     - pavadinimas
     - kontūras
+    - rūšis
   Savivaldybė:
     - raktas
     - pavadinimas
@@ -715,7 +748,7 @@ data-needed:
   ValstybinioProjektoParamosTeikėjas:
     - raktas
     - pavadinimas
-    - logotipas
+    - paveiksliukas
   ViešojoPirkimoDalyvis:
     - raktas
     - registracijos_numeris

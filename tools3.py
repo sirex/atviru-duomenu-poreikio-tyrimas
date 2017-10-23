@@ -29,28 +29,34 @@ def _get_objects():
 def main():
     objects = _get_objects()
 
+    for o in objects:
+        for name in dir(o):
+            if name.startswith('_'):
+                continue
+
+            prop = getattr(o, name)
+
+            if not isinstance(prop, data.P):
+                continue
+
+            if isinstance(prop.type, str):
+                prop.type = objects[prop.type]
+
+            if isinstance(prop.qualifier, str):
+                prop.qualifier = objects[prop.qualifier]
+
     with open('projects.yml') as f:
         projects = list(yaml.load_all(f))
 
     for project in projects:
-        for thing, props in project['data-needed'].items():
+        for thing, props in (project['data-needed'] or {}).items():
             obj = objects[thing]
-            for path in props:
-                for i, name in enumerate(path.split('.')):
-                    if i == 0:
-                        try:
-                            prop = obj[name]
-                        except AttributeError as e:
-                            raise Error(project, e)
-                    else:
-                        if _is_object(prop.type):
-                            prop = prop.type()[name]
-                        elif isinstance(prop.type, data.Objektas):
-                            prop = prop.type[name]
-                        else:
-                            raise Error(project, "%s field is not an object" % path)
-
-                print(project['title'], obj.meta.title, prop.title)
+            for name in props:
+                try:
+                    prop = obj[name]
+                except AttributeError as e:
+                    raise Error(project, e)
+                print(project['title'], obj.meta.title, name)
 
 
 if __name__ == "__main__":
