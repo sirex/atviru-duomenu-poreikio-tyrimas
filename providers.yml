@@ -1,0 +1,43 @@
+---
+title: Lietuvos Respublikos Seimas
+provides:
+  - title: Einamosios kadencijos Seimo nariai
+    url: http://www3.lrs.lt/pls/inter/P2B.seimo_nariai
+    format: xml
+    level: 3
+    started:
+    ended:
+    data:
+      EinamosiosKadencijosSeimoNarys:
+        - raktas
+        - vardas
+        - pavardė
+  - title: Einamosios kadencijos Seimo nariai
+    url: http://www.lrs.lt/sip/portal.show?p_r=8801&p_k=1&filtertype=0
+    format: html
+    level: 1
+    started:
+    ended:
+    data:
+      EinamosiosKadencijosSeimoNarys:
+        - raktas
+        - vardas
+        - pavardė
+        - nuotrauka
+  - title: Seimo nario profilis
+    url: http://www.lrs.lt/sip/portal.show?p_r=8801&p_k=1&p_a=seimo_narys_responsive&p_asm_id=79161
+    format: html
+    level: 1
+    started:
+    ended:
+    data:
+      SeimoNarys:
+        - raktas
+        - vardas
+        - pavardė
+        - gimimo_data
+        - mirties_data
+        - nuotrauka
+        - frakcija
+        - partija
+        - mandatas

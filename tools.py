@@ -1,5 +1,5 @@
 import logging
-import yaml
+# import yaml
 
 
 log = logging.getLogger()
@@ -67,20 +67,21 @@ class MultipleObjectsFound(Exception):
 def main():
     logging.basicConfig(format='%(levelname)s %(message)s', level=logging.DEBUG)
 
-    with open('data.yml') as f:
-        models = wrap(list(yaml.load_all(f)))
+    import data as models
 
-    with open('projects.yml') as f:
-        projects = wrap(list(yaml.load_all(f)))
+    print(models)
 
-    for project in projects:
-        for model in project.data._aslist('name', 'fields'):
-            if models._get(name=model.name) is None:
-                log.error("model %r specified for %r project, does not exist",
-                          model.name, project.title)
-            model = model._extend('extends', 'name', models)
-            for field in model.fields:
-                print(project.title, model.name, field)
+    # with open('projects.yml') as f:
+    #     projects = wrap(list(yaml.load_all(f)))
+
+    # for project in projects:
+    #     for model in project.data._aslist('name', 'fields'):
+    #         if models._get(name=model.name) is None:
+    #             log.error("model %r specified for %r project, does not exist",
+    #                       model.name, project.title)
+    #         model = model._extend('extends', 'name', models)
+    #         for field in model.fields:
+    #             print(project.title, model.name, field)
 
 
 if __name__ == "__main__":
