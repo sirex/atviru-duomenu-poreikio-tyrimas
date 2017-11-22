@@ -148,9 +148,6 @@ def main():
     sunburst([TreeNode('Objektas', tree[0].size, tree[0].levels, tree[0].children)])
     plt.savefig('sunburst.png')
 
-    from subprocess import run
-    run(['xdg-open', 'sunburst.png'])
-
 
 if __name__ == "__main__":
     main()
