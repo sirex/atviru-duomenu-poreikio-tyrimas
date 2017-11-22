@@ -61,16 +61,26 @@ def sunburst(nodes, total=np.pi * 2, offset=0, depth=0, ax=None):
         bottoms = [depth - 0.8] * len(nodes)
         rects = ax.bar(values, heights, widths, bottoms, linewidth=1, edgecolor='white', align='edge')
 
+        level_count = 6
+        level_height = 0.12
+        level_spacer = (1 - level_height * level_count) / (level_count + 1)
+
+        # level_marker_height = 0.01
+        # level_marker_spacer = (1 - 2 * level_spacer - level_marker_height * level_count) / (level_count + 1)
+
         for level, widths_ in levels.items():
             # Level marker
-            heights = [0.0185] * len(nodes)
-            bottoms = [depth - 0.8 + (0.0185 + 0.127) * level + 0.127] * len(nodes)
-            ax.bar(values, heights, widths, bottoms, color='gray', alpha=0.5, align='edge')
+            heights = [level_height] * len(nodes)
+            # bottoms = [depth - 0.8 + (0.0185 + 0.127) * level + 0.127] * len(nodes)
+            # bottoms = [depth - 0.8 + (level_marker_height + level_marker_spacer) * level + level_marker_spacer + level_spacer] * len(nodes)
+            bottoms = [depth - 0.8 + (level_height + level_spacer) * level + level_spacer] * len(nodes)
+            ax.bar(values, heights, widths, bottoms, color='white', alpha=0.2, align='edge')
 
             # Level value
-            heights = [0.12] * len(nodes)
-            bottoms = [depth - 0.8 + (0.12 + 0.04) * level + 0.04] * len(nodes)
-            ax.bar(values, heights, widths_, bottoms, color='white', alpha=0.5, align='edge')
+            heights = [level_height] * len(nodes)
+            # bottoms = [depth - 0.8 + (0.12 + 0.04) * level + 0.04] * len(nodes)
+            bottoms = [depth - 0.8 + (level_height + level_spacer) * level + level_spacer] * len(nodes)
+            ax.bar(values, heights, widths_, bottoms, color='white', alpha=0.4, align='edge')
 
         for rect, label in zip(rects, labels):
             x = rect.get_x() + rect.get_width() / 2
