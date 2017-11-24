@@ -308,7 +308,6 @@ data-needed:
   ValstybėsTarnautojoUžimamosPareigos:
     - tarnautojas
     - įstaiga
-
 ---
 title: manoseimas.lt
 coments: >
@@ -337,6 +336,81 @@ coments: >
   Teisės aktų duomenys - teisės akto pavadinimas, numeris, paskelbimo data,
   įsigaliojimo data, kas teikė.
 data-needed:
+  Balsas:
+    - raktas
+    - reikšmė
+    - formuluotė
+    - laikas
+    - seimo_narys
+    - frakcija
+    - balsavimas
+    - užsiregistravo
+    - klausimas
+  BalsavimoFormuluotė:
+    - raktas
+    - pavadinimas
+    - grupė
+  BalsavimoFormuluočiųGrupė:
+    - raktas
+  SeimoNarys:
+    - raktas
+    - vardas
+    - pavardė
+    - gimimo_data
+    - mirties_data
+    - nuotrauka
+    - frakcija
+    - partija
+    - mandatas
+  Frakcija:
+    - raktas
+    - pavadinimas
+    - trumpinys
+    - partija
+  FrakcijosNarys:
+    - raktas
+    - pradžia
+    - pabaiga
+    - frakcija
+    - seimo_narys
+  SeimoNarioPartija:
+    - raktas
+    - pradžia
+    - pabaiga
+    - partija
+    - seimo_narys
+  SeimoNarioMandatas:
+    - raktas
+    - seimo_narys
+    - kadencija
+    - pradžia
+    - pabaiga
+  SeimoKadencija:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  SeimoBalsavimas:
+    - raktas
+    - laikas
+    - klausimas
+    - teisės_aktas
+    - teisės_akto_elementas
+  SeimeSvarstytasKlausimas:
+    - raktas
+    - pavadinimas
+    - pranešėjas
+    - teisės_aktas
+  SeimeSvartytoKlausimoPranešėjas:
+    - raktas
+    - vardas
+    - pavardė
+    - nuotrauka
+    - partija
+    - pareigos
+  SeimeSvartytoKlausimoPranešėjoPareigos:
+    - raktas
+    - pavadinimas
 ---
 title: teisynas.lt
 coments: >
@@ -369,6 +443,107 @@ coments: >
   Juridinių asmenų registras - panaudojamo tikslas siejant įstaigas iš
   stenogramų, teikiamų pastabų ir pan.
 data-needed:
+  Balsas:
+    - raktas
+    - reikšmė
+    - formuluotė
+    - laikas
+    - seimo_narys
+    - frakcija
+    - balsavimas
+    - užsiregistravo
+    - klausimas
+  BalsavimoFormuluotė:
+    - raktas
+    - pavadinimas
+    - grupė
+  BalsavimoFormuluočiųGrupė:
+    - raktas
+  SeimoNarys:
+    - raktas
+    - vardas
+    - pavardė
+    - gimimo_data
+    - mirties_data
+    - nuotrauka
+    - frakcija
+    - partija
+    - mandatas
+  Frakcija:
+    - raktas
+    - pavadinimas
+    - trumpinys
+    - partija
+  FrakcijosNarys:
+    - raktas
+    - pradžia
+    - pabaiga
+    - frakcija
+    - seimo_narys
+  SeimoNarioPartija:
+    - raktas
+    - pradžia
+    - pabaiga
+    - partija
+    - seimo_narys
+  SeimoNarioMandatas:
+    - raktas
+    - seimo_narys
+    - kadencija
+    - pradžia
+    - pabaiga
+  SeimoKadencija:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  SeimoBalsavimas:
+    - raktas
+    - laikas
+    - klausimas
+    - teisės_aktas
+    - teisės_akto_elementas
+  SeimeSvarstytasKlausimas:
+    - raktas
+    - pavadinimas
+    - pranešėjas
+    - teisės_aktas
+  PasisakymasStenogramoje:
+    - asmuo
+    - pirmininkas
+    - klausimas
+    - teisės_aktas
+    - teisės_akto_elementas
+  TeisėsAktas:
+    - raktas
+    - pavadinimas
+    - rūšis
+    - numeris
+    - paskelbimo_data
+    - įsigaliojimo_data
+    - eurovoc_terminas
+    - dokumento_tekstas
+  TeisėsDokumentoAktoElementas:
+    - raktas
+    - pavadinimas
+    - dokumentas
+    - kamienas
+    - ankstesnis
+    - sekantis
+    - pakeičia
+    - pakeistas
+    - tipas
+    - teisės_aktas
+  AsmuoPasisakęsSeimoPosėdžioMetu:
+    - raktas
+    - vardas
+    - pavardė
+    - gimimo_data
+    - mirties_data
+    - nuotrauka
+    - frakcija
+    - partija
+    - mandatas
 ---
 title: Viešųjų pirkimų duomenys
 coments: >
@@ -377,6 +552,52 @@ coments: >
   (https://www.open-contracting.org/data-standard/) atvirų duomenų standartas,
   apibrėžiantis, kokie viešųjų pirkimų duomenys ir kaip jie turi būti atverti.
 data-needed:
+  ViešasisPirkimas:
+    - raktas
+    - pavadinimas
+    - projektas
+    - pirkėjas
+    - tiekėjas
+    - etapas
+    - suma
+    - žymė
+  DalyvavimasViešajamePirkime:
+    - raktas
+    - dalyvis
+    - pidarkimas
+    - ladaimėtojas
+  ViešojoPirkimoLėšųPanaudojimas:
+    - raktas
+    - pirkimas
+    - tiekėjas
+    - objektas
+    - kiekis
+    - suma
+  ValstybinisProjektas:
+    - raktas
+    - pavadinimas
+  ViešojoPirkimoTiekėjasĮmonė:
+    - raktas
+    - pavadinimas
+    - darbuotojų_skaičius
+    - vidadutinis_atlyginimas
+    - skola_sodrai
+    - įregistravimo_data
+    - išregistravimo_data
+  ViešojoPirkimoTiekėjasFizinisAsmuo:
+    - raktas
+    - vardas
+    - pavardė
+  PrekėPaslauga:
+    - raktas
+    - pavadinimas
+    - kategorija
+    - vidutinė_rinkos_vertė
+  Parama:
+    - raktas
+    - projektas
+    - teikėjas
+    - suma
 ---
 title: Lietuvos lankytinų vietos
 coments: >
@@ -423,14 +644,48 @@ coments: >
 
   Ir kita man nežinoma/nepaminėta su turizmu susijusi informacija.
 data-needed:
----
-title:
-coments: >
-data-needed:
----
-title:
-coments: >
-data-needed:
+  Adresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
+  TurizmoObjektas:
+    - raktas
+    - pavadinimas
+    - rūšis
+  SaugomaTeritorija:
+    - raktas
+    - pavadinimas
+  KultūrosVertybė:
+    - raktas
+    - pavadinimas
 ---
 title: places.openmap.lt
 data-needed:
@@ -484,6 +739,18 @@ comments: >
   vietovės istorinės administracinės ribos (geografiniai duomenys),
   paveiksliuko puslapis knygoje.
 data-needed:
+  MetrikųKnyga:
+    - raktas
+    - pavadinimas
+    - laikotarpis
+    - pastatas
+    - skaitmeninimo_data
+  MetrikųKnygosLapas:
+    - raktas
+    - pavadinimas
+    - metrikų_knyga
+    - lapo_numeris
+    - lapo_paveiksliukas
 ---
 title: Atviras žemėlapis
 comments: >
@@ -521,6 +788,38 @@ comments: >
 
   4. Kultūros vertybių registras.
 data-needed:
+  Adresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
 ---
 title: Lietuvių kalbos žodyno turtinimas
 comments: >
@@ -538,6 +837,16 @@ comments: >
   visus, o tik įdomesnius žodžius, patį parinkimą paliekant Lietuvių kalbos
   institutui).
 data-needed:
+  LietuviškasŽodis:
+    - raktas
+    - žodis
+    - žodžio_prasmės_aprašymas
+    - žodžio_naudojimo_pavyzdžiai
+    - gramatinė_forma
+    - kaitymas_kalbos_dalimis
+    - galimos_žodžio_formos
+    - žodžio_šaknis
+    - semantinė_kategorija
 ---
 title: Valstybinių įstaigų skambučių centro duomenys
 comments: >
@@ -548,6 +857,12 @@ comments: >
   vidutinę pokalbio trukmę, atsiliepimų dažnį ir etc. Tokia vieša informacija
   pagerintų aptarnavimo telefonu paslaugų kokybę. 
 data-needed:
+  SkambučiųRegistroĮrašas:
+    - raktas
+    - tel_nr
+    - skambučio_pradžia
+    - kada_atsiliepta
+    - kada_baigtas_pokalbis
 ---
 title: užsienio studentų detalioji statistika
 comments: >
@@ -559,6 +874,64 @@ comments: >
   [1] http://rsvis.emokykla.lt/cognos8/cgi-bin/cognosisapi.dll?b_action=cognosViewer&ui.action=run&ui.object=%2fcontent%2ffolder%5b%40name%3d%27Studijos%27%5d%2freport%5b%40name%3d%27Studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas%27%5d&ui.name=Studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas&run.outputFormat=&run.prompt=true
   [2] http://rsvis.emokykla.lt/cognos8/cgi-bin/cognosisapi.dll?b_action=cognosViewer&ui.action=run&ui.object=%2fcontent%2ffolder%5b%40name%3d%27Studijos%27%5d%2freport%5b%40name%3d%27Dalin%c4%97se%20studijose%20studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas%27%5d&ui.name=Dalin%c4%97se%20studijose%20studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas&run.outputFormat=&run.prompt=true&%20&cv.header=false
 data-needed:
+  Studijos:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  Studentas:
+    - studijavo
+    - mokymo_įstaiga
+    - šalis
+    - mokymo_įstaiga_iį_kurios_atvyko
+  MokymoĮstaiga:
+    - raktas
+    - pavadinimas
+    - institucijos_tipas
+    - pastatas
+    - adresas
+  MokymoĮstaigosPastatas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - adresas
+    - aukštų_skaičiu
+    - statybos_metai
+    - pastato_tipas
+    - darbo_laikas
+  MokymoĮstaigosAdresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  MokymoĮstaigosGatvė:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosGyvenvietė:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosSeniūnija:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosSavivaldybė:
+    - raktas
+    - pavadinimas
+  Šalis:
+    - raktas
+    - pavadinimas
+    - iso_3166_kodas
+  ŠaliesPavadinimas:
+    - raktas
+    - žodis
+    - kaitymas_kalbos_dalimis
+    - galimos_žodžio_formos
+    - žodžio_šaknis
 ---
 title: Tourist location updates events
 comments: >
@@ -579,6 +952,16 @@ comments: >
   įvertintį didesnių renginių pritraukiamų turistų skaičių (sporto renginiai,
   dainų šventė, koncertai, konferencijos and etc)
 data-needed:
+  TelefonoRegistracijaPrieMobTinklo:
+    - raktas
+    - pradžia
+    - kilmės_šalis
+    - telefono_modelis
+    - unikalus_įrenginio_identifikatorius
+  Šalis:
+    - raktas
+    - pavadinimas
+    - iso_3166_kodas
 ---
 title: Pasaulio valstybių pavadinimai lietuviškai ir ISO-3166
 comments: >
@@ -587,6 +970,16 @@ comments: >
   šiais pavadinimais leistų visose informacinėse sistemose naudoti teisingą
   valstybių pavadinimų kodavimą ir atvaizdavimą tose IS-ose.
 data-needed:
+  Šalis:
+    - raktas
+    - pavadinimas
+    - iso_3166_kodas
+  ŠaliesPavadinimas:
+    - raktas
+    - žodis
+    - kaitymas_kalbos_dalimis
+    - galimos_žodžio_formos
+    - žodžio_šaknis
 ---
 title: Studijų programų duomenų bazė
 comments: >
@@ -601,6 +994,49 @@ comments: >
   Šiuo metu minėta informacija nėra pilnai prienama, išbarstyta po ŠMM, MOSTA
   ir pavienių aukštojo mokslo įstaigų svetaines.
 data-needed:
+  Studijos:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  MokymoĮstaiga:
+    - raktas
+    - pavadinimas
+    - institucijos_tipas
+    - pastatas
+    - adresas
+  MokymoĮstaigosPastatas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - adresas
+    - aukštų_skaičiu
+    - statybos_metai
+    - pastato_tipas
+    - darbo_laikas
+  MokymoĮstaigosAdresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  MokymoĮstaigosGatvė:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosGyvenvietė:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosSeniūnija:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosSavivaldybė:
+    - raktas
+    - pavadinimas
 ---
 title: Informacijos apie mokslinius tyrimus atvėrimas (LMT)
 comments: >
@@ -620,6 +1056,47 @@ comments: >
   Patvirtinto biudžeto (plano) duomenys ir uždarytų metų, (biudžeto vykdymo)
   duomenys.
 data-needed:
+  BiudžetoFiskalinisĮrašas:
+    - raktas
+    - pavadinimas
+    - suma
+    - sąskaita
+    - sritis
+    - mokesčių_mokėtojas
+    - asignavimų_valdytojas
+    - laikas
+    - adresas
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+    - kamienas
+  VeiklosSritiesKategorijųMedis:
+    - raktas
+    - pavadinimas
+  JuridinisAsmuo:
+    - raktas
+    - pavadinimas
+    - pastatas
+    - darbuotojų_skaičius
+    - vidutinis_atlyginimas
+    - skola_sodrai
+    - įregistravimo_data
+    - išregistravimo_data
+  ValstybinėĮstaiga:
+    - raktas
+    - pavadinimas
+    - priklauso_įstaigai
+  JuridinioAsmensAdresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
 ---
 title: Atviri Lietuvos Respublikos nusikalstamumo duomenys 
 comments: >
@@ -654,6 +1131,46 @@ comments: >
   vadovaujantis viešai prieinama fragmentuota informacija. Gerai, kai išvados
   pozityvios. Blogai kai išvados - negatyvios...
 data-needed:
+  ValstybinėsĮstaigosFinansinėOperacija:
+    - raktas
+    - suma
+    - sąskaita
+    - sritis
+    - objektas
+    - subjektas
+    - laikas
+  ValstybinėsĮstaigosFinOpSubjektasJuridinis:
+    - raktas
+    - registracijos_numeris
+    - teisinė_forma
+    - veiklos_sritis
+    - darbuotojų_skaičius
+    - vidutinis_atlyginimas
+    - skola_sodrai
+    - įregistravimo_data
+    - išregistravimo_data
+    - adresas
+  JuridinioAsmensAdresas:
+    - koordinatės
+  PrekėPaslauga:
+    - raktas
+    - pavadinimas
+    - kategorija
+    - vidutinė_rinkos_vertė
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+    - kamienas
+  VeiklosSritiesKategorijųMedis:
+    - raktas
+    - pavadinimas
+  PrekiųPaslaugųKategorija:
+    - raktas
+    - pavadinimas
+    - kamienas
+  PrekiųPaslaugųKategorųMedis:
+    - raktas
+    - pavadinimas
 ---
 title: Lietuvos Linked Opend Data (LTLOD)
 data-needed: {}

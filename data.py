@@ -180,6 +180,10 @@ class KategorijųMedžioŠaka(Objektas):
     kamienas = P('self')
 
 
+class VeiklosSritiesKategorijųMedis(KategorijųMedis):
+    pass
+
+
 class VeiklosSritis(KategorijųMedžioŠaka):
     pass
 
@@ -241,6 +245,10 @@ class UžimamosPareigos(Laikotarpis):
     pakeistas = P(Asmuo, wikidata='P1366', comment="Buvo pakeistas vėliau šias pareigas užėmusio asmens.")
 
 
+class JuridinioAsmensAdresas(Adresas):
+    pass
+
+
 class JuridinisAsmuo(Grupė):
     pastatas = P(Pastatas, Laikotarpis)
     el_paštas = P(str, Laikotarpis)
@@ -252,6 +260,7 @@ class JuridinisAsmuo(Grupė):
     įregistravimo_data = P(DataLaikas, same_as='įkurta')
     išregistravimo_data = P(DataLaikas, same_as='likviduota')
     direktorius = P(Asmuo, same_as='vadovas')
+    adresas = P(JuridinioAsmensAdresas)
 
 
 class Įmonė(JuridinisAsmuo):
@@ -297,10 +306,34 @@ class MaitinimoĮstaiga(Objektas):
     adresas = P(Adresas)
 
 
+class MokymoĮstaigosPastatas(Pastatas):
+    pass
+
+
+class MokymoĮstaigosAdresas(Adresas):
+    pass
+
+
+class MokymoĮstaigosGatvė(Gatvė):
+    pass
+
+
+class MokymoĮstaigosGyvenvietė(Gyvenvietė):
+    pass
+
+
+class MokymoĮstaigosSeniūnija(Seniūnija):
+    pass
+
+
+class MokymoĮstaigosSavivaldybė(Savivaldybė):
+    pass
+
+
 class MokymoĮstaiga(Objektas):
     institucijos_tipas = P(str, choices=("universitetas", "mokykla"))
-    pastatas = P(Pastatas, Laikotarpis)
-    adresas = P(Adresas, Laikotarpis)
+    pastatas = P(MokymoĮstaigosPastatas)
+    adresas = P(MokymoĮstaigosAdresas)
 
 
 class Profesija(Objektas):
@@ -483,7 +516,7 @@ class TeisėsAktas(Dokumentas):
     eurovoc_terminas = P(str)
 
 
-class TeisėsAktoElementas(DokumentoElementas):
+class TeisėsDokumentoAktoElementas(DokumentoElementas):
     teisės_aktas = P(TeisėsAktas, same_as='dokumentas')
     tipas = P(str, choices=DokumentoElementas.tipas.choices + ('straipsnis',))
 
@@ -491,39 +524,50 @@ class TeisėsAktoElementas(DokumentoElementas):
 class SeimeSvarstytasTeisėsAktas(Objektas):
     klausimas = P('SeimeSvarstytasKlausimas')
     teisės_aktas = P(TeisėsAktas)
-    teisės_akto_elementas = P(TeisėsAktoElementas)
+    teisės_akto_elementas = P(TeisėsDokumentoAktoElementas)
     etapas = P("Klausimo svarstymo etapas", choices=("pateikimas", "svarstymas", "priėmimas"))
 
 
+# wordnet: entity / abstraction / communication / message / proposal / question
 class SeimeSvarstytasKlausimas(Objektas):
     pranešėjas = P('SeimeSvartytoKlausimoPranešėjas', backref='klausimas')
     teisės_aktas = P(TeisėsAktas, SeimeSvarstytasTeisėsAktas, m2mref='klausimas')
 
 
+# wordnet: entity / abstraction / psychological feature / event / human activity / activity / occupation / position
 class SeimeSvartytoKlausimoPranešėjoPareigos(Pareigos):
     pass
 
 
+# wordnet: entity / physical entity / object / unit / living thing / organism / person / communicator / articulator / speaker
 class SeimeSvartytoKlausimoPranešėjas(Asmuo):
     klausimas = P(SeimeSvarstytasKlausimas)
     pareigos = P(SeimeSvartytoKlausimoPranešėjoPareigos, backref='asmuo')
 
 
+# wordnet: entity / abstraction / psychological feature / event / human activity / action / choice / vote
+# wikidata: event
+# wikidata: group decision-making
+# wikidata: legal action
 class SeimoBalsavimas(Objektas):
     laikas = P(DataLaikas)
     klausimas = P(SeimeSvarstytasKlausimas, comment="Klausimas dėl kurio buvo balsuota.")
     teisės_aktas = P(TeisėsAktas)
-    teisės_akto_elementas = P(TeisėsAktoElementas)
+    teisės_akto_elementas = P(TeisėsDokumentoAktoElementas)
 
 
+# wordnet: entity / abstraction / group / collection
 class BalsavimoFormuluočiųGrupė(Objektas):
     pass
 
 
+# wordnet: entity / abstraction / psychological feature / knowledge / process / higher cognitive process / decision making / option
 class BalsavimoFormuluotė(Objektas):
     grupė = P(BalsavimoFormuluočiųGrupė)
 
 
+# wordnet: entity / abstraction / communication / message / opinion / position
+# wikidata: action / human action / choice
 class Balsas(Objektas):
     reikšmė = P(str, choices=("už", "susilaikė", "prieš"))
     formuluotė = P(BalsavimoFormuluotė, comment="Formuluotė už kurią buvo balsuojama.")
@@ -535,21 +579,24 @@ class Balsas(Objektas):
     klausimas = P(SeimeSvarstytasKlausimas)
 
 
+# wordnet: entity / abstraction / communication / message
 class Pasisakymas(Objektas):
     laikas = P(DataLaikas)
     asmuo = P(Asmuo)
 
 
+# wordnet: entity / physical entity / object / unit / living thing / organism / person / communicator / articulator / speaker
 class AsmuoPasisakęsSeimoPosėdžioMetu(Asmuo):
     pass
 
 
+# wordnet: entity / abstraction / communication / message
 class PasisakymasStenogramoje(Pasisakymas):
     asmuo = P(AsmuoPasisakęsSeimoPosėdžioMetu)
     pirmininkas = P(bool)
     klausimas = P(SeimeSvarstytasKlausimas, comment="Klausimas apie kurį buvo kalbėta.")
     teisės_aktas = P(TeisėsAktas)
-    teisės_akto_elementas = P(TeisėsAktoElementas)
+    teisės_akto_elementas = P(TeisėsDokumentoAktoElementas)
 
 
 class StatistinisRodiklis(Laikotarpis):
@@ -587,15 +634,22 @@ class Bankrotas(Įvykis):
     teismo_tvarka = P(bool)
 
 
+class PrekiųPaslaugųKategorųMedis(KategorijųMedis):
+    pass
+
+
 class PrekiųPaslaugųKategorija(KategorijųMedžioŠaka):
     pass
 
 
+# wordnet: entity / physical entity / object / unit / artifact / creation / product
+# wordnet: entity / abstraction / psychological feature / event / human activity / activity / work / service
 class PrekėPaslauga(Objektas):
     kategorija = P(PrekiųPaslaugųKategorija)
     vidutinė_rinkos_vertė = P(PinigųKiekis, comment="Prekės ar paslaugos vieneto vidutinė rinkos vertė.")
 
 
+# wordnet: entity / abstraction / psychological feature / cognition / content / idea / plan
 class Projektas(Įvykis):
     sritis = P(VeiklosSritis)
     vykdytojas = P(Agentas)
@@ -604,6 +658,7 @@ class Projektas(Įvykis):
     prašomos_paramos_suma = P(PinigųKiekis)
 
 
+# wordnet: entity / abstraction / amount / system of measurement / measure / monetary system / money / fund
 class Parama(Objektas):
     projektas = P(Projektas)
     teikėjas = P(Agentas)
@@ -644,9 +699,17 @@ class DalyvavimasViešajamePirkime(Laikotarpis):
     laimėtojas = P(bool, comment="Viešojo pirkimo konkurso laimėtojas.")
 
 
+class ViešojoPirkimoTiekėjasĮmonė(JuridinisAsmuo):
+    pass
+
+
+class ViešojoPirkimoTiekėjasFizinisAsmuo(Asmuo):
+    pass
+
+
 class ViešojoPirkimoLėšųPanaudojimas(Objektas):
     pirkimas = P(ViešasisPirkimas)
-    tiekėjas = P(Agentas)
+    tiekėjas = P(Agentas)  # ViešojoPirkimoTiekėjasĮmonė | ViešojoPirkimoTiekėjasFizinisAsmuo
     objektas = P(PrekėPaslauga)
     kiekis = P(Kiekis)
     suma = P(PinigųKiekis, comment="Perkamo objekto vieneto kaina.")
@@ -658,7 +721,7 @@ class MetrikųKnyga(Objektas):
     skaitmeninimo_data = P("Skaitmeninimo data")
 
 
-class MetrikuKnygosLapas(Objektas):
+class MetrikųKnygosLapas(Objektas):
     metrikų_knyga = P("Metrikų knyga", MetrikųKnyga)
     lapo_numeris = P("Lapo numeris")
     lapo_paveiksliukas = P("Lapo paveiksliukas")
@@ -677,26 +740,26 @@ class SaugomaTeritorija(ErdvinisObjektas):
     pavadinimas = P("Pavadinimas")
 
 
-class KurturosVertybe(ErdvinisObjektas):
+class KultūrosVertybė(ErdvinisObjektas):
     pavadinimas = P("Pavadinimas")
     rusis = P("Rūšis")
 
 
-class LietuviskasZodis(Objektas):
-    zodis = P("Žodis")
-    zodzio_prasmes_aprasymas = P("Žodžio prasmės aprašymas")
-    zodzio_naudojimo_pavyzdziai = P("Žodžio naudojimo pavyzdžiai")
-    gramatine_forma = P("Gramatinė forma")
+class LietuviškasŽodis(Objektas):
+    žodis = P("Žodis")
+    žodžio_prasmės_aprašymas = P("Žodžio prasmės aprašymas")
+    žodžio_naudojimo_pavyzdžiai = P("Žodžio naudojimo pavyzdžiai")
+    gramatinė_forma = P("Gramatinė forma")
     kaitymas_kalbos_dalimis = P("Kaitymas kalbos dalimis")
-    galimos_zodzio_formos = P("Galimos žodžio formos")
-    zodzio_saknis = P("Žodžio šaknis")
-    semantine_kategorija = P("Semantinė kategorija")
+    galimos_žodžio_formos = P("Galimos žodžio formos")
+    žodžio_šaknis = P("Žodžio šaknis")
+    semantinė_kategorija = P("Semantinė kategorija")
 
 
-class SkabuciuRegistroIrasas(Objektas):
+class SkambučiųRegistroĮrašas(Objektas):
     """Call data record (CDR)"""
     tel_nr = P("Tel. nr.")
-    skambucio_pradzia = P("Skambučio pradžios data ir laikas")
+    skambučio_pradžia = P("Skambučio pradžios data ir laikas")
     kada_atsiliepta = P("Kada atsiliepta, data ir laikas")
     kada_baigtas_pokalbis = P("Kada baigtas pokalbis, data ir laikas")
 
@@ -708,9 +771,9 @@ class Studijos(Objektas):
 
 class Studentas(Asmuo):
     studijavo = P(MokymoĮstaiga, Studijos)
-    mokymo_istaiga = P("Mokymo įstaiga", MokymoĮstaiga)
-    salis = P("Šalis")
-    mokymo_istaiga_is_kurios_atvyko = P("Mokymo įstaiga iš kurios atvyko (užsieniečiams)")
+    mokymo_įstaiga = P("Mokymo įstaiga", MokymoĮstaiga)
+    šalis = P("Šalis")
+    mokymo_įstaiga_iš_kurios_atvyko = P("Mokymo įstaiga iš kurios atvyko (užsieniečiams)")
 
 
 class Liga(Objektas):
@@ -722,25 +785,38 @@ class Susirgimas(Įvykis):
     asmuo = P("Asmuo", Asmuo)
 
 
-class TelefonoRegistracijaPrieMobTinklo(Įvykis):
-    """Visitor location register"""
-    kilmes_salis = P("Kilmės šalis")
-    tel_nr = P("Telefono modelis")
+class Produktas(Objektas):
+    kaina = P(PinigųKiekis)
 
 
-class Salis(ErdvinisObjektas):
-    pavadinimas = P("Lietuviškas pavadinimas")
+class TelefonoModelis(PrekėPaslauga):
+    pass
+
+
+class ŠaliesPavadinimas(LietuviškasŽodis):
+    pass
+
+
+class Šalis(ErdvinisObjektas):
+    pavadinimas = P(ŠaliesPavadinimas)
     iso_3166_kodas = P("Šalies ISO-3166 kodas")
 
 
-class Kapines(ErdvinisObjektas):
+class TelefonoRegistracijaPrieMobTinklo(Įvykis):
+    """Visitor location register"""
+    unikalus_įrenginio_identifikatorius = P(str)
+    kilmės_šalis = P(Šalis)
+    telefono_modelis = P(TelefonoModelis)
+
+
+class Kapinės(ErdvinisObjektas):
     pavadinimas = P("Pavadinimas")
     adresas = P("Adresas", Adresas)
     tikejimas = P("Tikėjimas")
 
 
 class Kapas(ErdvinisObjektas):
-    kapines = P("Kapinės", Kapines)
+    kapines = P("Kapinės", Kapinės)
     nuotrauka = P("Nuotrauka")
     asmuo = P("Asmuo", Asmuo)
 
@@ -756,24 +832,49 @@ class ParkavimoAikstele(ErdvinisObjektas):
     laisvu_vietu_skaicius = P("Laisvų vietų skaičius")
 
 
-class Stotele(ErdvinisObjektas):
+class Stotelė(ErdvinisObjektas):
     pavadinimas = P("Pavadinimas")
 
 
-class AutomusoStotele(Stotele):
+class AutobusoStotelė(Stotelė):
     pass
 
 
 class Marsrutas(Objektas):
-    stotele = P("Stotelė", Stotele)
+    stotelė = P("Stotelė", Stotelė)
     laikas = P("Atvykimo į stotelę laikas", DataLaikas)
 
 
-class BiudzetoFiskalinisIrasas(Objektas):
+class FinansinėsOperacijosAgentas(Agentas):
+    pass
+
+
+class FinansinėOperacija(Objektas):
     suma = P("Suma")
-    saskaita = P("Sąskaita", choices=("pajamos", "išlaidos"))
-    sritis = P("Sritis")
-    mokesciu_moketojas = P("Mokesčių mokėtojas")
-    asignavimu_valdytojas = P("Asignavimų valdytojas")
+    sąskaita = P("Sąskaita", choices=("pajamos", "išlaidos"))
+    sritis = P(VeiklosSritis)
+    objektas = P(PrekėPaslauga)
+    subjektas = P(Agentas)
+    laikas = P("Data ir laikas", DataLaikas)
+
+
+class BiudžetoFiskalinisĮrašas(FinansinėOperacija):
+    suma = P("Suma")
+    sąskaita = P("Sąskaita", choices=("pajamos", "išlaidos"))
+    sritis = P(VeiklosSritis)
+    mokesčių_mokėtojas = P(JuridinisAsmuo)
+    asignavimų_valdytojas = P(ValstybinėĮstaiga)
     laikas = P("Data ir laikas", DataLaikas)
     adresas = P("Adresas", Adresas)
+
+
+class ValstybinėsĮstaigosFinOpSubjektasJuridinis(JuridinisAsmuo):
+    pass
+
+
+class ValstybinėsĮstaigosFinOpSubjektasFizinis(Asmuo):
+    pass
+
+
+class ValstybinėsĮstaigosFinansinėOperacija(FinansinėOperacija):
+    subjektas = P(ValstybinėsĮstaigosFinOpSubjektasJuridinis)  # arba ValstybinėsĮstaigosFinOpSubjektasFizinis
