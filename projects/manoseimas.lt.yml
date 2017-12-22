@@ -1,0 +1,103 @@
+---
+title: manoseimas.lt
+coments: >
+  Projektas padedantis apsispręsti už ką balsuoti rinkimų metu ir stebėti
+  išrinktuosius.
+
+  Reikalingi duomenys:
+
+  Seimo narių profiliai - vardas, pavardė, gimimo data, narystės frakcijose,
+  komitetuose ir parlamentinės grupėse duomenys, kadencijos pradžia ir pabaiga,
+  Seimo nario nuotrauka, seimo nario pareigos.
+
+  Frakcijų duomenys - frakcijos pilnas pavadinimas, frakcijos trumpinys,
+  frakcijos susikūrimo ir panaikinimo datos, frakcijos logotipas.
+
+  Balsavimai dėl teisės aktų - kas balsavo, kokiai frakcijai priklausė, teisės
+  aktas už kurį buvo balsuota, balsavimo klausimas, balso reikšmė, balsavimo
+  data, registracija balsavimui.
+
+  Stenogramų duomenys - stenogramos tekstas suskirstytas pagal
+  pasisakiusiuosius, kalbėjusio žmogaus vardas, pavardė, gimimo metai,
+  pareigos, įstaigos ar organizacijos pavadinimas, frakcija (jei Seimo narys),
+  posėdžio pirmininkas, pasisakymo data, balsavimas ir teisės aktas apie kurį
+  buvo kalbama.
+
+  Teisės aktų duomenys - teisės akto pavadinimas, numeris, paskelbimo data,
+  įsigaliojimo data, kas teikė.
+data-needed:
+  Balsas:
+    - raktas
+    - reikšmė
+    - formuluotė
+    - laikas
+    - seimo_narys
+    - frakcija
+    - balsavimas
+    - užsiregistravo
+    - klausimas
+  BalsavimoFormuluotė:
+    - raktas
+    - pavadinimas
+    - grupė
+  BalsavimoFormuluočiųGrupė:
+    - raktas
+  SeimoNarys:
+    - raktas
+    - vardas
+    - pavardė
+    - gimimo_data
+    - mirties_data
+    - nuotrauka
+    - frakcija
+    - partija
+    - mandatas
+  Frakcija:
+    - raktas
+    - pavadinimas
+    - trumpinys
+    - partija
+  FrakcijosNarys:
+    - raktas
+    - pradžia
+    - pabaiga
+    - frakcija
+    - seimo_narys
+  SeimoNarioPartija:
+    - raktas
+    - pradžia
+    - pabaiga
+    - partija
+    - seimo_narys
+  SeimoNarioMandatas:
+    - raktas
+    - seimo_narys
+    - kadencija
+    - pradžia
+    - pabaiga
+  SeimoKadencija:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  SeimoBalsavimas:
+    - raktas
+    - laikas
+    - klausimas
+    - teisės_aktas
+    - teisės_akto_elementas
+  SeimeSvarstytasKlausimas:
+    - raktas
+    - pavadinimas
+    - pranešėjas
+    - teisės_aktas
+  SeimeSvartytoKlausimoPranešėjas:
+    - raktas
+    - vardas
+    - pavardė
+    - nuotrauka
+    - partija
+    - pareigos
+  SeimeSvartytoKlausimoPranešėjoPareigos:
+    - raktas
+    - pavadinimas
