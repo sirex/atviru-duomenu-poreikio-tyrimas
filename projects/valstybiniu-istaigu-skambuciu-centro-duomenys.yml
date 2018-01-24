@@ -1,0 +1,16 @@
+---
+title: Valstybinių įstaigų skambučių centro duomenys
+comments: >
+  Atverti valstybinių įstaigų (sodra, VMI, savivaldybės, ligoninės( skambučių
+  centrų skambučių registro (techniškai tai vadinasi CDR (call data record)
+  duomenys. Iš tokių duomenų galima išskaičiuoti ir sekti našumo rodiklius -
+  skambučių atsiliepimo santykį (answer success rate), vidutinę laukimo trukmę,
+  vidutinę pokalbio trukmę, atsiliepimų dažnį ir etc. Tokia vieša informacija
+  pagerintų aptarnavimo telefonu paslaugų kokybę. 
+data-needed:
+  SkambučiųRegistroĮrašas:
+    - raktas
+    - tel_nr
+    - skambučio_pradžia
+    - kada_atsiliepta
+    - kada_baigtas_pokalbis

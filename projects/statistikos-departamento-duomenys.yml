@@ -1,0 +1,15 @@
+title: Statistikos departamento duomenys
+comments: >
+  Lietuvos statistikos departamento duomenis reiktų pateikti patogiu masiniams
+  duomenų nusiurbimams patogiu formatu (csv, txt). Ir kad mažiau būtumėm
+  priklausomi nuo jų kintančios svetainės technologijų. Dabar stat dep duomenys
+  labiau pritaikyti on spot pažiūrėjimui.
+data-needed:
+  StatistinisRodiklis:
+    - raktas
+    - pradžia
+    - pabaiga
+    - dimensija
+    - atributas
+    - reikšmė
+    - matavimo_vienetas

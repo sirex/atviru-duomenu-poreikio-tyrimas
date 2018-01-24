@@ -1,0 +1,133 @@
+---
+title: teisynas.lt
+coments: >
+  Projektas padedantis sekti įstatymus ir geriau suprasti jų struktūrą.
+
+  Reikalingi duomenys:
+
+  Teisės aktų duomenys - teisės akto tekstas suskirstytas pagal straipsnius su
+  nuorodomis į keičiamą straipsnio dalį, teisės akto struktūra, teisė akto
+  tekstas (suskaidytas straipsniais, punktais ir pan.), nuorodos į vykusius
+  balsavimus dėl kiekvieno straipsnio, nuorodos į stenogramas, kurios buvo
+  diskutuota apie tam tikrus straipsnio punktus, teisės akto pavadinimas,
+  numeris, kada įsigalioja, kada paskelbtas, kada nustoja galioti, ryšys su
+  keičiamu teisės aktu, susiję dokumentai.
+
+  Teisės aktų aiškinamieji raštas - aiškinamojo rašto tekstas, susiejimas su
+  teisė akto dokumentu.
+
+  Stenogramų duomenys - stenogramų tekstai suskaidyti pagal pasisakiusiuosius,
+  kas pasisakė, ką pasakė, vardas, pavardė, gimimo metai, pareigos, įstaiga,
+  frakcija (jei Seimo narys).
+
+  Balsavimų duomenys - balsavimo data, teisės aktas ir straipsnis ar straipsnių
+  grupė už kuriuos buvo balsuota.
+
+  Teikiamos pastabos teisės aktų projektams - kas teikė, pastabos tekstas,
+  straipsnis ar jų grupė, teikiančiojo asmens vardas, pavardė, gimimo data,
+  pareigos, įstaiga, frakcija (jei Seimo narys).
+
+  Juridinių asmenų registras - panaudojamo tikslas siejant įstaigas iš
+  stenogramų, teikiamų pastabų ir pan.
+data-needed:
+  Balsas:
+    - raktas
+    - reikšmė
+    - formuluotė
+    - laikas
+    - seimo_narys
+    - frakcija
+    - balsavimas
+    - užsiregistravo
+    - klausimas
+  BalsavimoFormuluotė:
+    - raktas
+    - pavadinimas
+    - grupė
+  BalsavimoFormuluočiųGrupė:
+    - raktas
+  SeimoNarys:
+    - raktas
+    - vardas
+    - pavardė
+    - gimimo_data
+    - mirties_data
+    - nuotrauka
+    - frakcija
+    - partija
+    - mandatas
+  Frakcija:
+    - raktas
+    - pavadinimas
+    - trumpinys
+    - partija
+  FrakcijosNarys:
+    - raktas
+    - pradžia
+    - pabaiga
+    - frakcija
+    - seimo_narys
+  SeimoNarioPartija:
+    - raktas
+    - pradžia
+    - pabaiga
+    - partija
+    - seimo_narys
+  SeimoNarioMandatas:
+    - raktas
+    - seimo_narys
+    - kadencija
+    - pradžia
+    - pabaiga
+  SeimoKadencija:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  SeimoBalsavimas:
+    - raktas
+    - laikas
+    - klausimas
+    - teisės_aktas
+    - teisės_akto_elementas
+  SeimeSvarstytasKlausimas:
+    - raktas
+    - pavadinimas
+    - pranešėjas
+    - teisės_aktas
+  PasisakymasStenogramoje:
+    - asmuo
+    - pirmininkas
+    - klausimas
+    - teisės_aktas
+    - teisės_akto_elementas
+  TeisėsAktas:
+    - raktas
+    - pavadinimas
+    - rūšis
+    - numeris
+    - paskelbimo_data
+    - įsigaliojimo_data
+    - eurovoc_terminas
+    - dokumento_tekstas
+  TeisėsDokumentoAktoElementas:
+    - raktas
+    - pavadinimas
+    - dokumentas
+    - kamienas
+    - ankstesnis
+    - sekantis
+    - pakeičia
+    - pakeistas
+    - tipas
+    - teisės_aktas
+  AsmuoPasisakęsSeimoPosėdžioMetu:
+    - raktas
+    - vardas
+    - pavardė
+    - gimimo_data
+    - mirties_data
+    - nuotrauka
+    - frakcija
+    - partija
+    - mandatas

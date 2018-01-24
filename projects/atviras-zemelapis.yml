@@ -1,0 +1,69 @@
+---
+title: Atviras žemėlapis
+comments: >
+  Jau 13 metų kuriamas atviras pasaulio žemėlapis OpenStreetMap. Pagrindinis
+  duomenų kaupimo būdas - vietos apžiūra, ortofotografijų naudojimas.
+
+  Jei būtų atverta eilė valstybinių registrų/duomenų rinkinių, būtų galima daug
+  greičiau pildyti OpenStreetMap duomenų bazę, bei teikti atgal atitinkamų
+  registrų/duomenų rinkinių valdytojams pastabas apie duomenų trūkumus.
+
+  OpenStreetMap duomenis yra atviri, juos naudoti gali bet kas (net ir
+  komerciniams tikslams). Duomenys jau naudojami šimtuose internetinių
+  žemėlapių, kuriant Garmin navigatorių žemėlapius, išmaniąsias programėles,
+  spausdintus popierinius žemėlapius ir pan.
+
+  Šiuo metu jau yra naudojami tokie atviri duomenys (imant informaciją į
+  OpenStreetMap ir teikiant atgal pastabas apie netikslumus duomenų
+  valdytojams):
+
+  1. Vilniaus miesto savivaldybė: adresų duomenys
+
+  2. Nacionalinė žemės tarnyba (per geoportal.lt): GDR duomenys: gyvenvietės,
+     keliai
+
+  3. Lietuvos automobilių kelių direkcija: keliai, viešasis transportas
+
+  Reikalingi duomenys:
+
+  1. Registrų centro VISOS LIETUVOS adresų registras (tik gyvenvietė, gatvė,
+     numeris ir koordinatės, be nekilnojamo turto įvertinimų ir pan. duomenų)
+
+  2. Lietuvos Upių, ežerų ir tvenkinių registras.
+
+  3. Saugomų teritorijų duomenys (ribos, objektai)
+
+  4. Kultūros vertybių registras.
+data-needed:
+  Adresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija

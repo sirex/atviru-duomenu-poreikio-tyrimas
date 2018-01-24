@@ -1,0 +1,55 @@
+---
+title: Prekybos alkoholiu licencijos
+comments: >
+  Gerai būtų licencijų, sertifikatų, leidimų (pvz alkoholio prekybai) įmonėms
+  sąrašo. PVZ dabar kiekviena savivaldybė alkoholio prekybos licencijų sąrašus
+  skelbia skirtingais formatais arba iš vis neskelbia. Tas pats su
+  sertifikatais.
+data-needed:
+  PrekybosAlkoholiuLicencija:
+    - raktas
+    - maitinimo_įstaiga
+    - pradžia
+    - pabaiga
+  MaitinimoĮstaiga:
+    - raktas
+    - pavadinimas
+    - savininkas
+    - adresas
+  MaitinimoĮstaigosSavininkas:
+    - pavadinimas
+    - veiklos_sritis
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+  MaitinimoĮstaigosAdresas:
+    - raktas
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+    - koordinatės
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija

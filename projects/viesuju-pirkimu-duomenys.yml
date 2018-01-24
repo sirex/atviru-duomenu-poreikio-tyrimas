@@ -1,0 +1,54 @@
+---
+title: Viešųjų pirkimų duomenys
+coments: >
+  Būtina atverti visus duomenis, susijusius su viešaisiais pirkimais, pradedant
+  nuo planavimo iki sutarties uždarymo. Tobula, jei būtų įgyvendintas OCDS
+  (https://www.open-contracting.org/data-standard/) atvirų duomenų standartas,
+  apibrėžiantis, kokie viešųjų pirkimų duomenys ir kaip jie turi būti atverti.
+data-needed:
+  ViešasisPirkimas:
+    - raktas
+    - pavadinimas
+    - projektas
+    - pirkėjas
+    - tiekėjas
+    - etapas
+    - suma
+    - žymė
+  DalyvavimasViešajamePirkime:
+    - raktas
+    - dalyvis
+    - pidarkimas
+    - ladaimėtojas
+  ViešojoPirkimoLėšųPanaudojimas:
+    - raktas
+    - pirkimas
+    - tiekėjas
+    - objektas
+    - kiekis
+    - suma
+  ValstybinisProjektas:
+    - raktas
+    - pavadinimas
+  ViešojoPirkimoTiekėjasĮmonė:
+    - raktas
+    - pavadinimas
+    - darbuotojų_skaičius
+    - vidadutinis_atlyginimas
+    - skola_sodrai
+    - įregistravimo_data
+    - išregistravimo_data
+  ViešojoPirkimoTiekėjasFizinisAsmuo:
+    - raktas
+    - vardas
+    - pavardė
+  PrekėPaslauga:
+    - raktas
+    - pavadinimas
+    - kategorija
+    - vidutinė_rinkos_vertė
+  Parama:
+    - raktas
+    - projektas
+    - teikėjas
+    - suma

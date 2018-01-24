@@ -1,0 +1,35 @@
+---
+title: places.openmap.lt
+data-needed:
+  Adresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija

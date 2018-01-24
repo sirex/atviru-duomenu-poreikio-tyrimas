@@ -1,0 +1,27 @@
+---
+title: Lietuvių kalbos žodyno turtinimas
+comments: >
+  Kai kuriomis užsienio kalbomis (tarkim angliškai), galima rasti įvairių
+  internetinių paslaugų (sąrašynų ar pan.), kuriose galima užsisakyti, kad
+  kartą į dieną, ar kartą į savaitę būtų atsiunčiama žinutė apie kokį nors
+  vieną įdomų, bet rečiau naudojamą žodį. T.y. žodis, ką jis reiškia, naudojimo
+  pavyzdžiai.
+
+  Tokia paslauga leidžia žmonėms geriau susipažinti su dominančia (savo) kalba,
+  plėsti savo žodyną, saugoti kalbą. Norint sukurti tokią paslaugą, reikia, kad
+  būtų atverti Lietuvių kalbos didžiojo žodyno duomenys (lkz.lt). Atvėrus
+  duomenis, būtų galima organizuoti įdomių žodžių atrinkimą ir platinimą
+  norintiems per e-paštą, svetainę ar socialinius tinklus. (Galima atverti ne
+  visus, o tik įdomesnius žodžius, patį parinkimą paliekant Lietuvių kalbos
+  institutui).
+data-needed:
+  LietuviškasŽodis:
+    - raktas
+    - žodis
+    - žodžio_prasmės_aprašymas
+    - žodžio_naudojimo_pavyzdžiai
+    - gramatinė_forma
+    - kaitymas_kalbos_dalimis
+    - galimos_žodžio_formos
+    - žodžio_šaknis
+    - semantinė_kategorija

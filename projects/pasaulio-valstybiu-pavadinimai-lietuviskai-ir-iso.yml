@@ -1,0 +1,18 @@
+---
+title: Pasaulio valstybių pavadinimai lietuviškai ir ISO-3166
+comments: >
+  Lietuvių kalbos komisija pateikia pasaulio vietovardžių rašybą lietuviškai
+  http://pasaulio-vardai.vlkk.lt/. Viešas ir atviras ISO-3166 surišimas su
+  šiais pavadinimais leistų visose informacinėse sistemose naudoti teisingą
+  valstybių pavadinimų kodavimą ir atvaizdavimą tose IS-ose.
+data-needed:
+  Šalis:
+    - raktas
+    - pavadinimas
+    - iso_3166_kodas
+  ŠaliesPavadinimas:
+    - raktas
+    - žodis
+    - kaitymas_kalbos_dalimis
+    - galimos_žodžio_formos
+    - žodžio_šaknis

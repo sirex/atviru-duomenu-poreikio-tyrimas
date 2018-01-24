@@ -1,0 +1,69 @@
+---
+title: užsienio studentų detalioji statistika
+comments: >
+  Jei būtų prieinami ne tik studentų registro ataskaitos, kokios dabar
+  prieinamos [1] ir [2], bet ir patys (ne asmens) duomenys, galima būtų lengvau
+  atlikti įvairias analizes - parodyti pokytį pagal metus, grupavimą pagal
+  pasaulio regionus, specialybes mokymo įstaigose ir pan.
+
+  [1] http://rsvis.emokykla.lt/cognos8/cgi-bin/cognosisapi.dll?b_action=cognosViewer&ui.action=run&ui.object=%2fcontent%2ffolder%5b%40name%3d%27Studijos%27%5d%2freport%5b%40name%3d%27Studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas%27%5d&ui.name=Studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas&run.outputFormat=&run.prompt=true
+  [2] http://rsvis.emokykla.lt/cognos8/cgi-bin/cognosisapi.dll?b_action=cognosViewer&ui.action=run&ui.object=%2fcontent%2ffolder%5b%40name%3d%27Studijos%27%5d%2freport%5b%40name%3d%27Dalin%c4%97se%20studijose%20studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas%27%5d&ui.name=Dalin%c4%97se%20studijose%20studijuojan%c4%8di%c5%b3%20u%c5%besienie%c4%8di%c5%b3%20skai%c4%8diai%20pagal%20institucijas&run.outputFormat=&run.prompt=true&%20&cv.header=false
+data-needed:
+  Studijos:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  Studentas:
+    - studijavo
+    - mokymo_įstaiga
+    - šalis
+    - mokymo_įstaiga_iį_kurios_atvyko
+  MokymoĮstaiga:
+    - raktas
+    - pavadinimas
+    - institucijos_tipas
+    - pastatas
+    - adresas
+  MokymoĮstaigosPastatas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - adresas
+    - aukštų_skaičiu
+    - statybos_metai
+    - pastato_tipas
+    - darbo_laikas
+  MokymoĮstaigosAdresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  MokymoĮstaigosGatvė:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosGyvenvietė:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosSeniūnija:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosSavivaldybė:
+    - raktas
+    - pavadinimas
+  Šalis:
+    - raktas
+    - pavadinimas
+    - iso_3166_kodas
+  ŠaliesPavadinimas:
+    - raktas
+    - žodis
+    - kaitymas_kalbos_dalimis
+    - galimos_žodžio_formos
+    - žodžio_šaknis

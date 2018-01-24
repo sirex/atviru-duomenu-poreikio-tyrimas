@@ -1,0 +1,30 @@
+---
+title: Metrikų skaitmenizavimas
+comments: >
+  epaveldas.lt svetainėje galima rasti dalį paskelbtų gimimo, santuokos ir
+  mirties metrikų knygas. Knygos skelbiamos skenuotų paveiksliukų pavidalu,
+  kuriuose nėra galimybės ieškoti pagal teksto turinį.
+
+  Tam, kad ištraukti tekstą iš metrikų paveiksliukų reikalingas rankinis
+  žmogaus darbas, apie tai ir yra projekto idėja - skaitmenizuoti paveiksliukus
+  pasitelkiant crowd sourcingą.
+
+  Reikalingi duomenys:
+
+  Skaitmeninti metrikų paveiksliukai su meta duomenimis - paveiksliukas,
+  metrikų knygos pavadinimas, laikotarpis, vietovė (geografinės koordinatės),
+  vietovės istorinės administracinės ribos (geografiniai duomenys),
+  paveiksliuko puslapis knygoje.
+data-needed:
+  MetrikųKnyga:
+    - raktas
+    - pavadinimas
+    - laikotarpis
+    - pastatas
+    - skaitmeninimo_data
+  MetrikųKnygosLapas:
+    - raktas
+    - pavadinimas
+    - metrikų_knyga
+    - lapo_numeris
+    - lapo_paveiksliukas

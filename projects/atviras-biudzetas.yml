@@ -1,0 +1,47 @@
+---
+title: Atviras biudžetas
+comments: >
+  Patvirtinto biudžeto (plano) duomenys ir uždarytų metų, (biudžeto vykdymo)
+  duomenys.
+data-needed:
+  BiudžetoFiskalinisĮrašas:
+    - raktas
+    - pavadinimas
+    - suma
+    - sąskaita
+    - sritis
+    - mokesčių_mokėtojas
+    - asignavimų_valdytojas
+    - laikas
+    - adresas
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+    - kamienas
+  VeiklosSritiesKategorijųMedis:
+    - raktas
+    - pavadinimas
+  JuridinisAsmuo:
+    - raktas
+    - pavadinimas
+    - pastatas
+    - darbuotojų_skaičius
+    - vidutinis_atlyginimas
+    - skola_sodrai
+    - įregistravimo_data
+    - išregistravimo_data
+  ValstybinėĮstaiga:
+    - raktas
+    - pavadinimas
+    - priklauso_įstaigai
+  JuridinioAsmensAdresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris

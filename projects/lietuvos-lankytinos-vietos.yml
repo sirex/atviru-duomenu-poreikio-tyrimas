@@ -1,0 +1,88 @@
+---
+title: Lietuvos lankytinų vietos
+coments: >
+  Tai jau veikiantis projektas places.openmap.lt Jau beveik dešimt metų
+  kaupiami duomenis apie turizmui įdomius objektus, pradedant nuo lankytinų
+  vietų (muziejai, piliakalniai, paveldas, turizmo informaciniai centrai,
+  pažintiniai takai ir pan.) iki keliaujant reikalingų duomenų (apgyvendinimas,
+  maitinimas, stovyklavietės ir pan.).
+
+  Dabar duomenis kaupia tik atviro žemėlapio OpenStreetMap entuziastai. Labai
+  daug darbo nukristų (jėgas būtų galima nukreipti labiau kūrybine linkme), jei
+  įvairios saugomos teritorijos, savivaldybės ir pan. atvirai skelbtų savo
+  lankytinų vietų sąrašą su koordinatėmis. Tada tiek OpenStreetMap galėtų
+  susirinkti trūkstamus duomenis, tiek atgal iš OpenStreetMap būtų siunčiama
+  informacija, kokių objektų trūksta valstybiniame registre, ar kuri
+  informacija yra netiksli (taigi naudą gautų abi pusės).
+
+  Kai duomenys atsidurtų OpenStreetMap duomenų bazėje, jie būtų naudojami ne
+  tik places.openmap.lt, bet nukeliautų ir į galybę OSM pagrindu kuriamų
+  internetinių žemėlapių, Garmin navigatorius, į išmaniąsias programėles, upių
+  turizmo žemėlapius, iš OSM duomenų spausdinamus popierinius žemėlapius ir
+  pan. Taip pat tokius duomenis galėtų laisvai naudoti ir kitos Lietuvos
+  turizmą skatinančios svetainės/projektai (tarkim lietuvon.lt), kurie dabar
+  virš pusės savo laiko gaišta ieškodami tikslių koordinačių, vietoje to, kad
+  užsiimtu patogių svetainių, paslaugų kūrimu ar tiesiog vietos turizmo
+  viešinimu, populiarinimu.
+
+  Duomenys:
+
+  1. Kultūros vertybių registras
+
+  2. Valstybės saugomų teritorijų tarnybos (kol kas vis dar kuriamas?)
+     registras su turizmo objektais, nacionalinių/regioninių parkų, draustinių
+     ribos
+
+  3. IMŪEPIS (www.valstybiniaimiskai.lt) turima turizmo objektų informacija
+
+  4. maps.lt už Europos Sąjungos pinigus surinkti turizmo duomenys skiltyje
+     „Keliaujantiems lėtai“.
+
+  5. Upių debito momentiniai rodikliai ir prognozė (nežinau tiksliai, pas ką
+     yra šie duomenys, berods aplinkos ministerijoje? hidrometeorologijos
+     tarnyboje?)
+
+  Ir kita man nežinoma/nepaminėta su turizmu susijusi informacija.
+data-needed:
+  Adresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
+  TurizmoObjektas:
+    - raktas
+    - pavadinimas
+    - rūšis
+  SaugomaTeritorija:
+    - raktas
+    - pavadinimas
+  KultūrosVertybė:
+    - raktas
+    - pavadinimas

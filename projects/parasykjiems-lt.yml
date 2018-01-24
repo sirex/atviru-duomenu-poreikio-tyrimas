@@ -1,0 +1,82 @@
+---
+title: parašykjiems.lt
+comments: >
+  Galimybė susisiekti su savo išrinktu atstovu. Reikalingi adresų duomenys iš
+  registrų centro.  Dabartinis projektas veikia nusiurbiant duomenis iš
+  registrų centro (web-scraping).
+data-needed:
+  ValstybėsTarnautojoUžimamosPareigos:
+    - raktas
+    - tarnautojas
+    - įstaiga
+    - pareigos
+    - el_paštas
+    - tel_nr
+    - pradžia
+    - pabaiga
+    - pakeičia
+    - pakeistas
+  ValstybėsTarnautojas:
+    - raktas
+    - vardas
+    - pavardė
+    - nuotrauka
+  ValstybėsTarnautojoVardasPavardė:
+    - raktas
+    - asmuo
+    - vardas
+    - pavardė
+    - pabaiga
+  ValstybinėĮstaiga:
+    - raktas
+    - pavadinimas
+    - logotipas
+    - registracijos_numeris
+    - adresas
+    - priklauso_įstaigai
+    - veiklos_sritis
+    - el_paštas
+    - tel_nr
+    - tinklapis
+    - įregistravimo_data
+    - išregistravimo_data
+  ValstybinėsĮstaigosAdresas:
+    - raktas
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+    - koordinatės
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+    - kamienas
+  ValstybėsTarnautojoUžimamosPareigos:
+    - raktas
+    - pareigos
+    - pradžia
+    - pabaiga

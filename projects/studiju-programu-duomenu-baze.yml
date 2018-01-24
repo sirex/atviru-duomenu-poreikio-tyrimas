@@ -1,0 +1,57 @@
+---
+title: Studijų programų duomenų bazė
+comments: >
+  Renkantis studijas pravartu žinoti kuo daugiau informacijos apie studijų
+  programą, jos turinį, dėstyomus dalykus, istoriją, kokybę patvirtinančius
+  dokumentus.
+
+  Atvėrus šiuos duomenis programinės įrangos kūrėjai galėtų studijas
+  besirenkantiems Lietuvos ir užsienio piliečiams pateikti informaciją jiems
+  patogiu būdu. Taip pat, ši informaciją galėtų tapti mokslinių tyrimų objektu.
+
+  Šiuo metu minėta informacija nėra pilnai prienama, išbarstyta po ŠMM, MOSTA
+  ir pavienių aukštojo mokslo įstaigų svetaines.
+data-needed:
+  Studijos:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  MokymoĮstaiga:
+    - raktas
+    - pavadinimas
+    - institucijos_tipas
+    - pastatas
+    - adresas
+  MokymoĮstaigosPastatas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - adresas
+    - aukštų_skaičiu
+    - statybos_metai
+    - pastato_tipas
+    - darbo_laikas
+  MokymoĮstaigosAdresas:
+    - raktas
+    - pavadinimas
+    - koordinatės
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+  MokymoĮstaigosGatvė:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosGyvenvietė:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosSeniūnija:
+    - raktas
+    - pavadinimas
+  MokymoĮstaigosSavivaldybė:
+    - raktas
+    - pavadinimas

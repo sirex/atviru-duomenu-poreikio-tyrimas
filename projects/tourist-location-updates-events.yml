@@ -1,0 +1,30 @@
+---
+title: Tourist location updates events
+comments: >
+  Čia ne visiškai papuola po "open data" konceptu, bet idėja jau daug metų
+  kirba galvoje tai pasidalinsiu. 
+
+  Problema: Šiuo metu turistų skaičius ir kilmės šalys yra surenkamos iš
+  apklausų. Labai nepatikima, brangu ir retai vyksta. Nepastebimos tendencijos
+  ir outlier'iai. 
+
+  Ideja: Atvykusio užsieniečio mobilus telefonas registruojasi prie Lietuvos
+  ryšio operatorių (T2, Bitė, Telia) (tehcniškai prie VLR - visitors location
+  register). Jeigu operatoriai pasidalintų šiais anonimizuotais event'ais
+  Lietuva beveik realiu laiku galėtų matyti turistų skaičių, atvykstančių
+  kilmės šalis, apytikslę lankymosi trukmę, telefono modelį.
+
+  Su tokia informacija galima būtų matuoti turizmo departamento veiklos našumą,
+  įvertintį didesnių renginių pritraukiamų turistų skaičių (sporto renginiai,
+  dainų šventė, koncertai, konferencijos and etc)
+data-needed:
+  TelefonoRegistracijaPrieMobTinklo:
+    - raktas
+    - pradžia
+    - kilmės_šalis
+    - telefono_modelis
+    - unikalus_įrenginio_identifikatorius
+  Šalis:
+    - raktas
+    - pavadinimas
+    - iso_3166_kodas

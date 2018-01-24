@@ -1,0 +1,62 @@
+Metai:
+  type: int
+
+Mėnuo:
+  type: int
+  fields:
+    - MetųLaikas
+
+Diena:
+  type: int
+
+Valanda:
+  type: int
+
+Minutė:
+  type: int
+
+Sekundė:
+  type: int
+
+VasarosLaikas:
+  type: bool
+  fields:
+    - Pradžia
+    - Pabaiga
+
+UTC_Poslinkis:
+  type: int
+
+LaikoJuosta:
+  wikidata: Q12143
+  fields:
+    - UTC_Poslinkis
+    - VasarosLaikas
+
+Data:
+  fields:
+    - Metai
+    - Mėnuo
+    - Diena
+
+Laikas:
+  fields:
+    - Valanda
+    - Minutė
+    - Sekundė
+
+DataLaikas:
+  extends:
+    - Data
+    - Laikas
+  fields:
+    - LaikoJuosta
+
+Pradžia:
+  extends: DataLaikas
+
+Pabaiga:
+  extends: DataLaikas
+
+MetųLaikas:
+  type: str

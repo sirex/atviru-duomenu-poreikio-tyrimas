@@ -1,0 +1,66 @@
+---
+title: Lietuvos Respublikos visos pajamos ir išlaidos vienoje vietoje
+comments: >
+  Tam, kad investuotojai matytų realią reikalų padėtį Lietuvoje jiems yra
+  būtina parodyti visas Lietuvos pajamas ir išlaidas už mažiausiai 10 metų
+  vienoje vietoje. Piliečiams tai leistų pamatyti, palyginti politinių
+  sprendimų pasekmes kiekvienais metais. Planas ir faktas. Neklausiama patogu
+  tai ar nepatogu. Dabar tas jau nebeįdomu. Operacijų tipai ir operacijų sumos
+  turi būti suvienodinti ir apimti visą Lietuvos Respublikos federalinį,
+  institucijų, savivaldos ir susijusius biudžetus, išorinę paramą už mažiausiai
+  10 metų. Visus viešus ir ne viešus finansus. Kairėje pajamos, dešinėje -
+  išlaidos. 1 didelė Sankey tipo diagrama.  Žinoma, tai kas slapta ir turi
+  likti slapta. Bet neturėjimas tokios ilgalaikės struktūrizuotos informacijos
+  labai kenkia Lietuvos įvaizdžiui. Turima omenyje šalis nėra patraukli
+  investuotojui tol, kol Ji eile metų nedirba ta pačia tvarka ir režimu, o jei
+  dirba - nesugeba informacijos struktūrizuoti vadovaujantis vieninga operacijų
+  grupavimo tvarka. Tai parodo, kad nėra tęstinumo. Niekas nenori investuoti
+  savo pinigų į pastovių reformų "purtomas" šalis. Niekas nenori gyventi
+  pereinamaisiais laikotarpiais. Tokie paprasti ir baziniai duomenys - tai
+  reputacijos, savigarbos bei drąsos reikalas. Net ir viską gerai darant bet
+  neturint duomenų pateikimo visuomenei ir investuotojams ilgalaikės tvarkos -
+  investuotojai samdo brangiai apmokamus auditorius kurie iš piršto laužia
+  patogias ir nepatogias Lietuvai išvadas investuotojams parengtas
+  vadovaujantis viešai prieinama fragmentuota informacija. Gerai, kai išvados
+  pozityvios. Blogai kai išvados - negatyvios...
+data-needed:
+  ValstybinėsĮstaigosFinansinėOperacija:
+    - raktas
+    - suma
+    - sąskaita
+    - sritis
+    - objektas
+    - subjektas
+    - laikas
+  ValstybinėsĮstaigosFinOpSubjektasJuridinis:
+    - raktas
+    - registracijos_numeris
+    - teisinė_forma
+    - veiklos_sritis
+    - darbuotojų_skaičius
+    - vidutinis_atlyginimas
+    - skola_sodrai
+    - įregistravimo_data
+    - išregistravimo_data
+    - adresas
+  JuridinioAsmensAdresas:
+    - koordinatės
+  PrekėPaslauga:
+    - raktas
+    - pavadinimas
+    - kategorija
+    - vidutinė_rinkos_vertė
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+    - kamienas
+  VeiklosSritiesKategorijųMedis:
+    - raktas
+    - pavadinimas
+  PrekiųPaslaugųKategorija:
+    - raktas
+    - pavadinimas
+    - kamienas
+  PrekiųPaslaugųKategorųMedis:
+    - raktas
+    - pavadinimas

@@ -1,0 +1,69 @@
+---
+title: Bankrotų statistika
+comments: >
+  Reiktų pratęsti ir pagerinti kažkada pradėtą bankrotų departamento darbą
+  viešinti bankrotų duomenis patogiu formatu. Reikalingi ne tik bankrutavusių
+  skaičiai, tačiau ir išieškoma skolos dalis ir kt. kas dabar yra tik pdf'uose.
+  Žr. čia:
+  http://www.avnt.lt/veiklos-sritys/nemokumas-2/nemokumo-duomenys-ir-analiz/
+data-needed:
+  Bankrotas:
+    - raktas
+    - įmonė
+    - pradžia
+    - pabaiga
+    - iniciatorius
+    - išieškomos_skolos_dalis
+    - nutarties_priėmimo_data
+    - supaprastinta_tvarka
+    - teismo_tvarka
+  BankrutuojantiĮmonė:
+    - raktas
+    - pavadinimas
+    - adresas
+    - teisinė_forma
+    - veiklos_sritis
+    - darbuotojų_skaičius
+    - vidutinis_atlyginimas
+    - apyvarda
+    - įregistravimo_data
+    - išregistravimo_data
+    - logotipas
+  BankrutuojančiosĮmonėsAdresas:
+    - raktas
+    - apskritis
+    - rajonas
+    - savivaldybė
+    - seniūnija
+    - gyvenvietė
+    - gatvė
+    - pastato_numeris
+    - koordinatės
+  Apskritis:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Rajonas:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gyvenvietė:
+    - raktas
+    - pavadinimas
+    - kontūras
+    - rūšis
+  Savivaldybė:
+    - raktas
+    - pavadinimas
+    - kontūras
+  Gatvė:
+    - raktas
+    - pavadinimas
+    - linija
+  TeisinėForma:
+    - raktas
+    - pavadinimas
+  VeiklosSritis:
+    - raktas
+    - pavadinimas
+    - kamienas

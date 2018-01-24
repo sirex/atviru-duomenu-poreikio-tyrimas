@@ -1,0 +1,88 @@
+---
+title: Seimo narių balsavimai
+coments: >
+  Seimo narių balsavimų statistinė analizė: balsavimo ideologiniai ir kitokie
+  dėsningumai.
+data-needed:
+  Balsas:
+    - raktas
+    - reikšmė
+    - formuluotė
+    - laikas
+    - seimo_narys
+    - frakcija
+    - balsavimas
+    - užsiregistravo
+    - klausimas
+  BalsavimoFormuluotė:
+    - raktas
+    - pavadinimas
+    - grupė
+  BalsavimoFormuluočiųGrupė:
+    - raktas
+  SeimoNarys:
+    - raktas
+    - vardas
+    - pavardė
+    - gimimo_data
+    - mirties_data
+    - nuotrauka
+    - frakcija
+    - partija
+    - mandatas
+  Frakcija:
+    - raktas
+    - pavadinimas
+    - trumpinys
+    - partija
+  FrakcijosNarys:
+    - raktas
+    - pradžia
+    - pabaiga
+    - frakcija
+    - seimo_narys
+  Partija:
+    - raktas
+    - pavadinimas
+    - politinė_kryptis
+  SeimoNarioPartija:
+    - raktas
+    - pradžia
+    - pabaiga
+    - partija
+    - seimo_narys
+  SeimoNarioMandatas:
+    - raktas
+    - seimo_narys
+    - kadencija
+    - pradžia
+    - pabaiga
+  SeimoKadencija:
+    - raktas
+    - pavadinimas
+    - pradžia
+    - pabaiga
+  SeimoBalsavimas:
+    - raktas
+    - laikas
+    - klausimas
+    - teisės_aktas
+    - teisės_akto_elementas
+  SeimeSvarstytasKlausimas:
+    - raktas
+    - pavadinimas
+    - pranešėjas
+    - teisės_aktas
+  SeimeSvartytoKlausimoPranešėjas:
+    - raktas
+    - vardas
+    - pavardė
+    - nuotrauka
+    - partija
+    - pareigos
+  SeimeSvartytoKlausimoPranešėjoPareigos:
+    - raktas
+    - pavadinimas
+  ValstybėsTarnautojoUžimamosPareigos:
+    - tarnautojas
+    - įstaiga

@@ -80,7 +80,6 @@ class Koordinates(Objektas):
     ilguma = P(str)
     platuma = P(str)
 
-
 class ErdvinisObjektas(Objektas):
     pass
 
