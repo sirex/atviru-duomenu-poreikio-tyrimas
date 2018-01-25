@@ -52,3 +52,15 @@ Kad visa tai veiktų, reikėtų įteisinti procesus, kuriais remiantis duomenų
 naudotojai galėtų formaliai pateikti prašymą duomenims gauti, o duomenų
 tiekėjai turėtų laikytis formalaus duomenų aprašytmo taisyklių atveriant savo
 duomenis.
+
+
+Vienas iš pavyzdžių, kokias ataskaitas galima generuoti naudojantis minėtais
+formaliais duomenų aprašais:
+
+
+.. image:: https://raw.githubusercontent.com/sirex/atviru-duomenu-poreikio-tyrimas/master/reports/sunburst.png
+   :height: 638 px
+   :width: 850 px
+   :alt: Atvirų duomenų progreso sunburst diagrama.
+   :align: center
+   :target: https://raw.githubusercontent.com/sirex/atviru-duomenu-poreikio-tyrimas/master/reports/sunburst.png
