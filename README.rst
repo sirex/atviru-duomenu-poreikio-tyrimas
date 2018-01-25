@@ -70,7 +70,7 @@ Susijusios nuorodos
 -------------------
 
 
-- `Wikidata duomenų models <https://www.mediawiki.org/wiki/Wikibase/DataModel/Primer>`_
+- `Wikidata duomenų modelis <https://www.mediawiki.org/wiki/Wikibase/DataModel/Primer>`_
 
 - `Resource Description Framework (RDF) <https://en.wikipedia.org/wiki/Resource_Description_Framework>`_
 

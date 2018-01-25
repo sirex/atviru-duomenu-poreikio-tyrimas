@@ -1,0 +1,90 @@
+Formuluotė:
+  type: str
+  comment: Formuluotė už ką buvo balsuota.
+
+SeimoNarioBalsas:
+  type: float
+  choices:
+    - value: 1
+      label: už
+    - value: 0.25
+      label: susilaikė
+    - value: 0
+      label: prieš
+  fields:
+    - Formuluotė
+    - Laikas
+    - SeimoNarys
+    - Frakcija
+    - Balsavimas
+    - Užsiregistravo
+    - Klausimas
+
+SeimoNarys:
+  fields:
+    - Vardas
+    - Pavardė
+    - GimimoData
+    - MirtiesData
+    - Nuotrauka
+    - Frakcija
+    - Partija
+    - Mandatas
+
+Frakcija:
+  fields:
+    - Trumpinys
+    - Partija
+
+FrakcijosNarys:
+  extends: Terminas
+  qualifies:
+    - Frakcija
+    - SeimoNarys
+
+SeimoNarioPartija:
+  extends: Terminas
+  qualifies:
+    - Partija
+    - SeimoNarys
+
+SeimoNarioMandatas:
+  extends: Terminas
+  qualifies:
+    - SeimoNarys
+    - SeimoKadencija
+
+SeimoKadencija:
+  extends: Terminas
+
+SeimoBalsavimas:
+  fields:
+    - Laikas
+    - Klausimas
+    - TeisėsAktas
+    - TeisėsAktoElementas
+
+SeimeSvarstytasKlausimas:
+  fields:
+    - Pranešėjas
+    - TeisėsAktas
+
+SeimeSvartytoKlausimoPranešėjas:
+  fields:
+    - Vardas
+    - Pavardė
+    - Nuotrauka
+    - Partija
+    - Pareigos
+
+SeimeSvartytoKlausimoPranešėjoPareigos:
+  extends: Terminas
+  qualifies:
+    - SeimeSvarstytasKlausimas
+    - SeimeSvartytoKlausimoPranešėjas
+
+Terminas:
+  comment: Tai, kas turi pradžią ir pabaigą.
+  fields:
+    - Pradžia
+    - Pabaiga
