@@ -28,7 +28,8 @@ UTC_Poslinkis:
   type: int
 
 LaikoJuosta:
-  wikidata: Q12143
+  links:
+    wikidata: Q12143
   fields:
     - UTC_Poslinkis
     - VasarosLaikas

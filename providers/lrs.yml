@@ -3,6 +3,7 @@ title: Lietuvos Respublikos Seimas
 provides:
   - title: Einamosios kadencijos Seimo nariai
     url: http://www3.lrs.lt/pls/inter/P2B.seimo_nariai
+    adapter: https://adapters.opendata.gov.lt/lrs/seimo-nariai/
     format: xml
     level: 3
     started:

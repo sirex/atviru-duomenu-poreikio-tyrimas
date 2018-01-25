@@ -64,3 +64,16 @@ formaliais duomenų aprašais:
    :alt: Atvirų duomenų progreso sunburst diagrama.
    :align: center
    :target: https://raw.githubusercontent.com/sirex/atviru-duomenu-poreikio-tyrimas/master/reports/sunburst.png
+
+
+Susijusios nuorodos
+-------------------
+
+
+- `Wikidata duomenų models <https://www.mediawiki.org/wiki/Wikibase/DataModel/Primer>`_
+
+- `Resource Description Framework (RDF) <https://en.wikipedia.org/wiki/Resource_Description_Framework>`_
+
+- `frictionlessdata.io <https://frictionlessdata.io/>`_
+
+- `WordNet <http://wordnetweb.princeton.edu/perl/webwn>`_
